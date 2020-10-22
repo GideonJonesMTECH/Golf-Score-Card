@@ -1,3 +1,33 @@
-
+table {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+table th,
+table td {
+  text-align: center;
+  padding: 15px;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+table #HoleRow,
+table #GreenRow,
+table #ParRow {
+  background-color: green;
+  color: white;
+}
+table #LGreenRow {
+  background-color: greenyellow;
+}
+table #BlueRow {
+  background-color: blue;
+  color: white;
+}
+table #GrayRow {
+  background-color: grey;
+}
+table #title {
+  font-size: larger;
+  font-weight: 700;
+}
 
 /*# sourceMappingURL=styles.css.map */

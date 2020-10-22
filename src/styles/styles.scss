@@ -1,0 +1,31 @@
+table {
+  th,
+  td {
+    text-align: center;
+    padding: 15px;
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  #HoleRow,
+  #GreenRow,
+  #ParRow {
+    background-color: green;
+    color: white;
+  }
+  #LGreenRow {
+    background-color: greenyellow;
+  }
+  #BlueRow {
+    background-color: blue;
+    color: white;
+  }
+  #GrayRow {
+    background-color: grey;
+  }
+  #title {
+    font-size: larger;
+    font-weight: 700;
+  }
+  border: 1px solid black;
+  border-collapse: collapse;
+}

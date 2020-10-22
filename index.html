@@ -15,6 +15,397 @@
   </head>
   <body>
     <header></header>
-    <main></main>
+    <main>
+      <table>
+        <tr>
+          <th colspan="100%" id="title">Golf Scorecard</th>
+        </tr>
+        <tr id="HoleRow">
+          <th>Hole</th>
+          <th>1</th>
+          <th>2</th>
+          <th>3</th>
+          <th>4</th>
+          <th>5</th>
+          <th>6</th>
+          <th>7</th>
+          <th>8</th>
+          <th>9</th>
+          <th>OUT</th>
+          <td rowspan="100%"></td>
+          <th>10</th>
+          <th>11</th>
+          <th>12</th>
+          <th>13</th>
+          <th>14</th>
+          <th>15</th>
+          <th>16</th>
+          <th>17</th>
+          <th>18</th>
+          <th>IN</th>
+          <th>TOT</th>
+        </tr>
+        <tr id="BlueRow">
+          <th>Blue</th>
+          <th id="Blue1">356</th>
+          <th id="Blue2">527</th>
+          <th id="Blue3">194</th>
+          <th id="Blue4">379</th>
+          <th id="Blue5">427</th>
+          <th id="Blue6">373</th>
+          <th id="Blue7">615</th>
+          <th id="Blue8">436</th>
+          <th id="Blue9">204</th>
+          <th id="OutBlue"></th>
+          <th id="Blue10">524</th>
+          <th id="Blue11">390</th>
+          <th id="Blue12">397</th>
+          <th id="Blue13">184</th>
+          <th id="Blue14">551</th>
+          <th id="Blue15">355</th>
+          <th id="Blue16">461</th>
+          <th id="Blue17">184</th>
+          <th id="Blue18">405</th>
+          <th id="InBlue"></th>
+          <th id="TotBlue"></th>
+        </tr>
+        <tr id="GreenRow">
+          <th>Green</th>
+          <th id="Green1">332</th>
+          <th id="Green2">518</th>
+          <th id="Green3">163</th>
+          <th id="Green4">344</th>
+          <th id="Green5">405</th>
+          <th id="Green6">357</th>
+          <th id="Green7">548</th>
+          <th id="Green8">402</th>
+          <th id="Green9">174</th>
+          <th id="OutGreen"></th>
+          <th id="Green10">505</th>
+          <th id="Green11">376</th>
+          <th id="Green12">385</th>
+          <th id="Green13">143</th>
+          <th id="Green14">513</th>
+          <th id="Green15">354</th>
+          <th id="Green16">419</th>
+          <th id="Green17">146</th>
+          <th id="Green18">381</th>
+          <th id="InGreen"></th>
+          <th id="TotGreen"></th>
+        </tr>
+        <tr id="GrayRow">
+          <th>Gray</th>
+          <th id="Gray1">314</th>
+          <th id="Gray2">506</th>
+          <th id="Gray3">136</th>
+          <th id="Gray4">296</th>
+          <th id="Gray5">329</th>
+          <th id="Gray6">341</th>
+          <th id="Gray7">498</th>
+          <th id="Gray8">369</th>
+          <th id="Gray9">137</th>
+          <th id="OutGray"></th>
+          <th id="Gray10">435</th>
+          <th id="Gray11">342</th>
+          <th id="Gray12">337</th>
+          <th id="Gray13">128</th>
+          <th id="Gray14">458</th>
+          <th id="Gray15">337</th>
+          <th id="Gray16">343</th>
+          <th id="Gray17">119</th>
+          <th id="Gray18">366</th>
+          <th id="InGray"></th>
+          <th id="TotGray"></th>
+        </tr>
+        <tr id="HandiRow">
+          <th>Handicap</th>
+          <th id="Handi1">13</th>
+          <th id="Handi2">3</th>
+          <th id="Handi3">15</th>
+          <th id="Handi4">11</th>
+          <th id="Handi5">7</th>
+          <th id="Handi6">9</th>
+          <th id="Handi7">5</th>
+          <th id="Handi8">1</th>
+          <th id="Handi9">17</th>
+          <th id="OutHandi"></th>
+          <th id="Handi10">6</th>
+          <th id="Handi11">12</th>
+          <th id="Handi12">10</th>
+          <th id="Handi13">18</th>
+          <th id="Handi14">4</th>
+          <th id="Handi15">14</th>
+          <th id="Handi16">2</th>
+          <th id="Handi17">16</th>
+          <th id="Handi18">8</th>
+          <th id="InHandi"></th>
+          <th id="TotHandi"></th>
+        </tr>
+        <tr class="PlayerRow" id="Player1Row">
+          <th>Player1</th>
+          <td id="One1"></td>
+          <td id="One2"></td>
+          <td id="One3"></td>
+          <td id="One4"></td>
+          <td id="One5"></td>
+          <td id="One6"></td>
+          <td id="One7"></td>
+          <td id="One8"></td>
+          <td id="One9"></td>
+          <th id="OutOne"></th>
+          <td id="One10"></td>
+          <td id="One11"></td>
+          <td id="One12"></td>
+          <td id="One13"></td>
+          <td id="One14"></td>
+          <td id="One15"></td>
+          <td id="One16"></td>
+          <td id="One17"></td>
+          <td id="One18"></td>
+          <th id="InOne"></th>
+          <th id="TotOne"></th>
+        </tr>
+        <tr class="PlayerRow" id="Player2Row">
+          <th>Player2</th>
+          <th id="Two1"></th>
+          <th id="Two2"></th>
+          <th id="Two3"></th>
+          <th id="Two4"></th>
+          <th id="Two5"></th>
+          <th id="Two6"></th>
+          <th id="Two7"></th>
+          <th id="Two8"></th>
+          <th id="Two9"></th>
+          <th id="OutTwo"></th>
+          <th id="Two10"></th>
+          <th id="Two11"></th>
+          <th id="Two12"></th>
+          <th id="Two13"></th>
+          <th id="Two14"></th>
+          <th id="Two15"></th>
+          <th id="Two16"></th>
+          <th id="Two17"></th>
+          <th id="Two18"></th>
+          <th id="InTwo"></th>
+          <th id="TotTwo"></th>
+        </tr>
+        <tr class="PlayerRow" id="Player3Row">
+          <th>Player3</th>
+          <th id="Three1"></th>
+          <th id="Three2"></th>
+          <th id="Three3"></th>
+          <th id="Three4"></th>
+          <th id="Three5"></th>
+          <th id="Three6"></th>
+          <th id="Three7"></th>
+          <th id="Three8"></th>
+          <th id="Three9"></th>
+          <th id="OutThree"></th>
+          <th id="Three10"></th>
+          <th id="Three11"></th>
+          <th id="Three12"></th>
+          <th id="Three13"></th>
+          <th id="Three14"></th>
+          <th id="Three15"></th>
+          <th id="Three16"></th>
+          <th id="Three17"></th>
+          <th id="Three18"></th>
+          <th id="InThree"></th>
+          <th id="TotThree"></th>
+        </tr>
+        <tr class="PlayerRow" id="Player4Row">
+          <th>Player4</th>
+          <th id="Four1"></th>
+          <th id="Four2"></th>
+          <th id="Four3"></th>
+          <th id="Four4"></th>
+          <th id="Four5"></th>
+          <th id="Four6"></th>
+          <th id="Four7"></th>
+          <th id="Four8"></th>
+          <th id="Four9"></th>
+          <th id="OutFour"></th>
+          <th id="Four10"></th>
+          <th id="Four11"></th>
+          <th id="Four12"></th>
+          <th id="Four13"></th>
+          <th id="Four14"></th>
+          <th id="Four15"></th>
+          <th id="Four16"></th>
+          <th id="Four17"></th>
+          <th id="Four18"></th>
+          <th id="InFour"></th>
+          <th id="TotFour"></th>
+        </tr>
+        <tr id="ParRow">
+          <th>PAR</th>
+          <th id="Par1">4</th>
+          <th id="Par2">5</th>
+          <th id="Par3">3</th>
+          <th id="Par4">4</th>
+          <th id="Par5">4</th>
+          <th id="Par6">4</th>
+          <th id="Par7">5</th>
+          <th id="Par8">4</th>
+          <th id="Par9">3</th>
+          <th id="OutPar"></th>
+          <th id="Par10">5</th>
+          <th id="Par11">4</th>
+          <th id="Par12">4</th>
+          <th id="Par13">3</th>
+          <th id="Par14">5</th>
+          <th id="Par15">4</th>
+          <th id="Par16">4</th>
+          <th id="Par17">3</th>
+          <th id="Par18">4</th>
+          <th id="InPar"></th>
+          <th id="TotPar"></th>
+        </tr>
+        <tr class="PlayerRow" id="Player5Row">
+          <th>Player5</th>
+          <th id="Five1"></th>
+          <th id="Five2"></th>
+          <th id="Five3"></th>
+          <th id="Five4"></th>
+          <th id="Five5"></th>
+          <th id="Five6"></th>
+          <th id="Five7"></th>
+          <th id="Five8"></th>
+          <th id="Five9"></th>
+          <th id="OutFive"></th>
+          <th id="Five10"></th>
+          <th id="Five11"></th>
+          <th id="Five12"></th>
+          <th id="Five13"></th>
+          <th id="Five14"></th>
+          <th id="Five15"></th>
+          <th id="Five16"></th>
+          <th id="Five17"></th>
+          <th id="Five18"></th>
+          <th id="InFive"></th>
+          <th id="TotFive"></th>
+        </tr>
+        <tr class="PlayerRow" id="Player6Row">
+          <th>Player6</th>
+          <th id="Six1"></th>
+          <th id="Six2"></th>
+          <th id="Six3"></th>
+          <th id="Six4"></th>
+          <th id="Six5"></th>
+          <th id="Six6"></th>
+          <th id="Six7"></th>
+          <th id="Six8"></th>
+          <th id="Six9"></th>
+          <th id="OutSix"></th>
+          <th id="Six10"></th>
+          <th id="Six11"></th>
+          <th id="Six12"></th>
+          <th id="Six13"></th>
+          <th id="Six14"></th>
+          <th id="Six15"></th>
+          <th id="Six16"></th>
+          <th id="Six17"></th>
+          <th id="Six18"></th>
+          <th id="InSix"></th>
+          <th id="TotSix"></th>
+        </tr>
+        <tr class="PlayerRow" id="Player7Row">
+          <th>Player7</th>
+          <th id="Seven1"></th>
+          <th id="Seven2"></th>
+          <th id="Seven3"></th>
+          <th id="Seven4"></th>
+          <th id="Seven5"></th>
+          <th id="Seven6"></th>
+          <th id="Seven7"></th>
+          <th id="Seven8"></th>
+          <th id="Seven9"></th>
+          <th id="OutSeven"></th>
+          <th id="Seven10"></th>
+          <th id="Seven11"></th>
+          <th id="Seven12"></th>
+          <th id="Seven13"></th>
+          <th id="Seven14"></th>
+          <th id="Seven15"></th>
+          <th id="Seven16"></th>
+          <th id="Seven17"></th>
+          <th id="Seven18"></th>
+          <th id="InSeven"></th>
+          <th id="TotSeven"></th>
+        </tr>
+        <tr class="PlayerRow" id="Player8Row">
+          <th>Player8</th>
+          <th id="Eight1"></th>
+          <th id="Eight2"></th>
+          <th id="Eight3"></th>
+          <th id="Eight4"></th>
+          <th id="Eight5"></th>
+          <th id="Eight6"></th>
+          <th id="Eight7"></th>
+          <th id="Eight8"></th>
+          <th id="Eight9"></th>
+          <th id="OutEight"></th>
+          <th id="Eight10"></th>
+          <th id="Eight11"></th>
+          <th id="Eight12"></th>
+          <th id="Eight13"></th>
+          <th id="Eight14"></th>
+          <th id="Eight15"></th>
+          <th id="Eight16"></th>
+          <th id="Eight17"></th>
+          <th id="Eight18"></th>
+          <th id="InEight"></th>
+          <th id="TotEight"></th>
+        </tr>
+        <tr id="LGreenRow">
+          <th>Light Green</th>
+          <th id="LGreen1">311</th>
+          <th id="LGreen2">418</th>
+          <th id="LGreen3">118</th>
+          <th id="LGreen4">282</th>
+          <th id="LGreen5">326</th>
+          <th id="LGreen6">289</th>
+          <th id="LGreen7">488</th>
+          <th id="LGreen8">295</th>
+          <th id="LGreen9">128</th>
+          <th id="OutLGreen"></th>
+          <th id="LGreen10">425</th>
+          <th id="LGreen11">331</th>
+          <th id="LGreen12">325</th>
+          <th id="LGreen13">117</th>
+          <th id="LGreen14">450</th>
+          <th id="LGreen15">285</th>
+          <th id="LGreen16">339</th>
+          <th id="LGreen17">110</th>
+          <th id="LGreen18">315</th>
+          <th id="InLGreen"></th>
+          <th id="TotLGreen"></th>
+        </tr>
+        <tr id="LHandiRow">
+          <th>Ladies' Handicap</th>
+          <th id="LHandi1">13</th>
+          <th id="LHandi2">3</th>
+          <th id="LHandi3">15</th>
+          <th id="LHandi4">11</th>
+          <th id="LHandi5">9</th>
+          <th id="LHandi6">5</th>
+          <th id="LHandi7">1</th>
+          <th id="LHandi8">7</th>
+          <th id="LHandi9">17</th>
+          <th id="OutLHandi"></th>
+          <th id="LHandi10">4</th>
+          <th id="LHandi11">12</th>
+          <th id="LHandi12">6</th>
+          <th id="LHandi13">18</th>
+          <th id="LHandi14">2</th>
+          <th id="LHandi15">14</th>
+          <th id="LHandi16">8</th>
+          <th id="LHandi17">16</th>
+          <th id="LHandi18">10</th>
+          <th id="InLHandi"></th>
+          <th id="TotLHandi"></th>
+        </tr>
+      </table>
+    </main>
   </body>
 </html>
