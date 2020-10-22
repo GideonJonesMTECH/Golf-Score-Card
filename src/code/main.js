@@ -339,8 +339,6 @@ let OutEight = document.getElementById('OutEight')
 let TotEight = document.getElementById('TotEight')
 //#endregion
 
-
-
 //#region Out, In, Total
 let outBlueValue = 0;
 outBlueValue = (Blue1.innerText * 1) + (Blue2.innerText * 1) + (Blue3.innerText * 1) + (Blue4.innerText * 1) + (Blue5.innerText * 1) + (Blue6.innerText * 1) + (Blue7.innerText * 1) + (Blue8.innerText * 1) + (Blue9.innerText * 1);
