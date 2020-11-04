@@ -1,4 +1,4 @@
-const apiUrl = "https://golf-courses-api.herokuapp.com/courses";
+function getTableData() {
 //#region BLUE
 const Blue1 = document.getElementById("Blue1");
 const Blue2 = document.getElementById("Blue2");
@@ -338,109 +338,420 @@ let InEight = document.getElementById('InEight')
 let OutEight = document.getElementById('OutEight')
 let TotEight = document.getElementById('TotEight')
 //#endregion
+}
 
-//#region Out, In, Total
-let outBlueValue = 0;
-outBlueValue = (Blue1.innerText * 1) + (Blue2.innerText * 1) + (Blue3.innerText * 1) + (Blue4.innerText * 1) + (Blue5.innerText * 1) + (Blue6.innerText * 1) + (Blue7.innerText * 1) + (Blue8.innerText * 1) + (Blue9.innerText * 1);
-OutBlue.innerText = outBlueValue;
-let inBlueValue = 0;
-inBlueValue = (Blue10.innerText * 1) + (Blue11.innerText * 1) + (Blue12.innerText * 1) + (Blue13.innerText * 1) + (Blue14.innerText * 1) + (Blue15.innerText * 1) + (Blue16.innerText * 1) + (Blue17.innerText * 1) + (Blue18.innerText * 1);
-InBlue.innerText = inBlueValue;
-TotBlue.innerText = inBlueValue + outBlueValue;
+let golfTableObj = document.getElementById("GolfTable");
+let newApiURL = "";
 
-let outGreenValue = 0;
-outGreenValue = (Green1.innerText * 1) + (Green2.innerText * 1) + (Green3.innerText * 1) + (Green4.innerText * 1) + (Green5.innerText * 1) + (Green6.innerText * 1) + (Green7.innerText * 1) + (Green8.innerText * 1) + (Green9.innerText * 1);
-OutGreen.innerText = outGreenValue;
-let inGreenValue = 0;
-inGreenValue = (Green10.innerText * 1) + (Green11.innerText * 1) + (Green12.innerText * 1) + (Green13.innerText * 1) + (Green14.innerText * 1) + (Green15.innerText * 1) + (Green16.innerText * 1) + (Green17.innerText * 1) + (Green18.innerText * 1);
-InGreen.innerText = inGreenValue;
-TotGreen.innerText = inGreenValue + outGreenValue;
+let makePlayerRow = function (numbnumb, numbword) {
+  return `<tr class="PlayerRow" id="Player${numbnumb}Row">
+<th><input type="text" id="player${numbnumb}Name" placeholder="Player ${numbnumb}"></th>
+<td><input type="number" id="${numbword}1" /></td>
+<td><input type="number" id="${numbword}2" /></td>
+<td><input type="number" id="${numbword}3" /></td>
+<td><input type="number" id="${numbword}4" /></td>
+<td><input type="number" id="${numbword}5" /></td>
+<td><input type="number" id="${numbword}6" /></td>
+<td><input type="number" id="${numbword}7" /></td>
+<td><input type="number" id="${numbword}8" /></td>
+<td><input type="number" id="${numbword}9" /></td>
+<th id="Out${numbword}"></th>
+<td><input type="number" id="${numbword}10" /></td>
+<td><input type="number" id="${numbword}11" /></td>
+<td><input type="number" id="${numbword}12" /></td>
+<td><input type="number" id="${numbword}13" /></td>
+<td><input type="number" id="${numbword}14" /></td>
+<td><input type="number" id="${numbword}15" /></td>
+<td><input type="number" id="${numbword}16" /></td>
+<td><input type="number" id="${numbword}17" /></td>
+<td><input type="number" id="${numbword}18" /></td>
+<th id="In${numbword}"></th>
+<th id="Tot${numbword}"></th>
+</tr>`
+}
 
-let outGrayValue = 0;
-outGrayValue = (Gray1.innerText * 1) + (Gray2.innerText * 1) + (Gray3.innerText * 1) + (Gray4.innerText * 1) + (Gray5.innerText * 1) + (Gray6.innerText * 1) + (Gray7.innerText * 1) + (Gray8.innerText * 1) + (Gray9.innerText * 1);
-OutGray.innerText = outGrayValue;
-let inGrayValue = 0;
-inGrayValue = (Gray10.innerText * 1) + (Gray11.innerText * 1) + (Gray12.innerText * 1) + (Gray13.innerText * 1) + (Gray14.innerText * 1) + (Gray15.innerText * 1) + (Gray16.innerText * 1) + (Gray17.innerText * 1) + (Gray18.innerText * 1);
-InGray.innerText = inGrayValue;
-TotGray.innerText = inGrayValue + outGrayValue;
 
-let outParValue = 0;
-outParValue = (Par1.innerText * 1) + (Par2.innerText * 1) + (Par3.innerText * 1) + (Par4.innerText * 1) + (Par5.innerText * 1) + (Par6.innerText * 1) + (Par7.innerText * 1) + (Par8.innerText * 1) + (Par9.innerText * 1);
-OutPar.innerText = outParValue;
-let inParValue = 0;
-inParValue = (Par10.innerText * 1) + (Par11.innerText * 1) + (Par12.innerText * 1) + (Par13.innerText * 1) + (Par14.innerText * 1) + (Par15.innerText * 1) + (Par16.innerText * 1) + (Par17.innerText * 1) + (Par18.innerText * 1);
-InPar.innerText = inParValue;
-TotPar.innerText = inParValue + outParValue;
+let playerRowsEarly = null;
+let playerRowsLater = null;
 
-let outLGreenValue = 0;
-outLGreenValue = (LGreen1.innerText * 1) + (LGreen2.innerText * 1) + (LGreen3.innerText * 1) + (LGreen4.innerText * 1) + (LGreen5.innerText * 1) + (LGreen6.innerText * 1) + (LGreen7.innerText * 1) + (LGreen8.innerText * 1) + (LGreen9.innerText * 1);
-OutLGreen.innerText = outLGreenValue;
-let inLGreenValue = 0;
-inLGreenValue = (LGreen10.innerText * 1) + (LGreen11.innerText * 1) + (LGreen12.innerText * 1) + (LGreen13.innerText * 1) + (LGreen14.innerText * 1) + (LGreen15.innerText * 1) + (LGreen16.innerText * 1) + (LGreen17.innerText * 1) + (LGreen18.innerText * 1);
-InLGreen.innerText = inLGreenValue;
-TotLGreen.innerText = inLGreenValue + outLGreenValue;
+let setTableHTML = function (EarlyRows, LateRows) {
+return `<table>
+<tr>
+  <th colspan="100%" id="title">Golf Scorecard</th>
+</tr>
+<tr id="HoleRow">
+  <th>Hole</th>
+  <th>1</th>
+  <th>2</th>
+  <th>3</th>
+  <th>4</th>
+  <th>5</th>
+  <th>6</th>
+  <th>7</th>
+  <th>8</th>
+  <th>9</th>
+  <th>OUT</th>
+  <td rowspan="100%"></td>
+  <th>10</th>
+  <th>11</th>
+  <th>12</th>
+  <th>13</th>
+  <th>14</th>
+  <th>15</th>
+  <th>16</th>
+  <th>17</th>
+  <th>18</th>
+  <th>IN</th>
+  <th>TOT</th>
+</tr>
+<tr id="BlueRow">
+  <th>Blue</th>
+  <th id="Blue1">356</th>
+  <th id="Blue2">527</th>
+  <th id="Blue3">194</th>
+  <th id="Blue4">379</th>
+  <th id="Blue5">427</th>
+  <th id="Blue6">373</th>
+  <th id="Blue7">615</th>
+  <th id="Blue8">436</th>
+  <th id="Blue9">204</th>
+  <th id="OutBlue"></th>
+  <th id="Blue10">524</th>
+  <th id="Blue11">390</th>
+  <th id="Blue12">397</th>
+  <th id="Blue13">184</th>
+  <th id="Blue14">551</th>
+  <th id="Blue15">355</th>
+  <th id="Blue16">461</th>
+  <th id="Blue17">184</th>
+  <th id="Blue18">405</th>
+  <th id="InBlue"></th>
+  <th id="TotBlue"></th>
+</tr>
+<tr id="GreenRow">
+  <th>Green</th>
+  <th id="Green1">332</th>
+  <th id="Green2">518</th>
+  <th id="Green3">163</th>
+  <th id="Green4">344</th>
+  <th id="Green5">405</th>
+  <th id="Green6">357</th>
+  <th id="Green7">548</th>
+  <th id="Green8">402</th>
+  <th id="Green9">174</th>
+  <th id="OutGreen"></th>
+  <th id="Green10">505</th>
+  <th id="Green11">376</th>
+  <th id="Green12">385</th>
+  <th id="Green13">143</th>
+  <th id="Green14">513</th>
+  <th id="Green15">354</th>
+  <th id="Green16">419</th>
+  <th id="Green17">146</th>
+  <th id="Green18">381</th>
+  <th id="InGreen"></th>
+  <th id="TotGreen"></th>
+</tr>
+<tr id="GrayRow">
+  <th>Gray</th>
+  <th id="Gray1">314</th>
+  <th id="Gray2">506</th>
+  <th id="Gray3">136</th>
+  <th id="Gray4">296</th>
+  <th id="Gray5">329</th>
+  <th id="Gray6">341</th>
+  <th id="Gray7">498</th>
+  <th id="Gray8">369</th>
+  <th id="Gray9">137</th>
+  <th id="OutGray"></th>
+  <th id="Gray10">435</th>
+  <th id="Gray11">342</th>
+  <th id="Gray12">337</th>
+  <th id="Gray13">128</th>
+  <th id="Gray14">458</th>
+  <th id="Gray15">337</th>
+  <th id="Gray16">343</th>
+  <th id="Gray17">119</th>
+  <th id="Gray18">366</th>
+  <th id="InGray"></th>
+  <th id="TotGray"></th>
+</tr>
+<tr id="HandiRow">
+  <th>Handicap</th>
+  <th id="Handi1">13</th>
+  <th id="Handi2">3</th>
+  <th id="Handi3">15</th>
+  <th id="Handi4">11</th>
+  <th id="Handi5">7</th>
+  <th id="Handi6">9</th>
+  <th id="Handi7">5</th>
+  <th id="Handi8">1</th>
+  <th id="Handi9">17</th>
+  <th id="OutHandi">N/A</th>
+  <th id="Handi10">6</th>
+  <th id="Handi11">12</th>
+  <th id="Handi12">10</th>
+  <th id="Handi13">18</th>
+  <th id="Handi14">4</th>
+  <th id="Handi15">14</th>
+  <th id="Handi16">2</th>
+  <th id="Handi17">16</th>
+  <th id="Handi18">8</th>
+  <th id="InHandi">N/A</th>
+  <th id="TotHandi">N/A</th>
+</tr>
+${EarlyRows}
+<tr id="ParRow">
+  <th>PAR</th>
+  <th id="Par1">4</th>
+  <th id="Par2">5</th>
+  <th id="Par3">3</th>
+  <th id="Par4">4</th>
+  <th id="Par5">4</th>
+  <th id="Par6">4</th>
+  <th id="Par7">5</th>
+  <th id="Par8">4</th>
+  <th id="Par9">3</th>
+  <th id="OutPar"></th>
+  <th id="Par10">5</th>
+  <th id="Par11">4</th>
+  <th id="Par12">4</th>
+  <th id="Par13">3</th>
+  <th id="Par14">5</th>
+  <th id="Par15">4</th>
+  <th id="Par16">4</th>
+  <th id="Par17">3</th>
+  <th id="Par18">4</th>
+  <th id="InPar"></th>
+  <th id="TotPar"></th>
+</tr>
+${LateRows}
+<tr id="LGreenRow">
+  <th>Light Green</th>
+  <th id="LGreen1">311</th>
+  <th id="LGreen2">418</th>
+  <th id="LGreen3">118</th>
+  <th id="LGreen4">282</th>
+  <th id="LGreen5">326</th>
+  <th id="LGreen6">289</th>
+  <th id="LGreen7">488</th>
+  <th id="LGreen8">295</th>
+  <th id="LGreen9">128</th>
+  <th id="OutLGreen"></th>
+  <th id="LGreen10">425</th>
+  <th id="LGreen11">331</th>
+  <th id="LGreen12">325</th>
+  <th id="LGreen13">117</th>
+  <th id="LGreen14">450</th>
+  <th id="LGreen15">285</th>
+  <th id="LGreen16">339</th>
+  <th id="LGreen17">110</th>
+  <th id="LGreen18">315</th>
+  <th id="InLGreen"></th>
+  <th id="TotLGreen"></th>
+</tr>
+<tr id="LHandiRow">
+  <th>Ladies' Handicap</th>
+  <th id="LHandi1">13</th>
+  <th id="LHandi2">3</th>
+  <th id="LHandi3">15</th>
+  <th id="LHandi4">11</th>
+  <th id="LHandi5">9</th>
+  <th id="LHandi6">5</th>
+  <th id="LHandi7">1</th>
+  <th id="LHandi8">7</th>
+  <th id="LHandi9">17</th>
+  <th id="OutLHandi">N/A</th>
+  <th id="LHandi10">4</th>
+  <th id="LHandi11">12</th>
+  <th id="LHandi12">6</th>
+  <th id="LHandi13">18</th>
+  <th id="LHandi14">2</th>
+  <th id="LHandi15">14</th>
+  <th id="LHandi16">8</th>
+  <th id="LHandi17">16</th>
+  <th id="LHandi18">10</th>
+  <th id="InLHandi">N/A</th>
+  <th id="TotLHandi">N/A</th>
+</tr>
 
-let outOneValue = 0;
-outOneValue = (One1.innerText * 1) + (One2.innerText * 1) + (One3.innerText * 1) + (One4.innerText * 1) + (One5.innerText * 1) + (One6.innerText * 1) + (One7.innerText * 1) + (One8.innerText * 1) + (One9.innerText * 1);
-OutOne.innerText = outOneValue;
-let inOneValue = 0;
-inOneValue = (One10.innerText * 1) + (One11.innerText * 1) + (One12.innerText * 1) + (One13.innerText * 1) + (One14.innerText * 1) + (One15.innerText * 1) + (One16.innerText * 1) + (One17.innerText * 1) + (One18.innerText * 1);
-InOne.innerText = inOneValue;
-TotOne.innerText = inOneValue + outOneValue;
+</table>`
+}
 
-let outTwoValue = 0;
-outTwoValue = (Two1.innerText * 1) + (Two2.innerText * 1) + (Two3.innerText * 1) + (Two4.innerText * 1) + (Two5.innerText * 1) + (Two6.innerText * 1) + (Two7.innerText * 1) + (Two8.innerText * 1) + (Two9.innerText * 1);
-OutTwo.innerText = outTwoValue;
-let inTwoValue = 0;
-inTwoValue = (Two10.innerText * 1) + (Two11.innerText * 1) + (Two12.innerText * 1) + (Two13.innerText * 1) + (Two14.innerText * 1) + (Two15.innerText * 1) + (Two16.innerText * 1) + (Two17.innerText * 1) + (Two18.innerText * 1);
-InTwo.innerText = inTwoValue;
-TotTwo.innerText = inTwoValue + outTwoValue;
 
-let outThreeValue = 0;
-outThreeValue = (Three1.innerText * 1) + (Three2.innerText * 1) + (Three3.innerText * 1) + (Three4.innerText * 1) + (Three5.innerText * 1) + (Three6.innerText * 1) + (Three7.innerText * 1) + (Three8.innerText * 1) + (Three9.innerText * 1);
-OutThree.innerText = outThreeValue;
-let inThreeValue = 0;
-inThreeValue = (Three10.innerText * 1) + (Three11.innerText * 1) + (Three12.innerText * 1) + (Three13.innerText * 1) + (Three14.innerText * 1) + (Three15.innerText * 1) + (Three16.innerText * 1) + (Three17.innerText * 1) + (Three18.innerText * 1);
-InThree.innerText = inThreeValue;
-TotThree.innerText = inThreeValue + outThreeValue;
 
-let outFourValue = 0;
-outFourValue = (Four1.innerText * 1) + (Four2.innerText * 1) + (Four3.innerText * 1) + (Four4.innerText * 1) + (Four5.innerText * 1) + (Four6.innerText * 1) + (Four7.innerText * 1) + (Four8.innerText * 1) + (Four9.innerText * 1);
-OutFour.innerText = outFourValue;
-let inFourValue = 0;
-inFourValue = (Four10.innerText * 1) + (Four11.innerText * 1) + (Four12.innerText * 1) + (Four13.innerText * 1) + (Four14.innerText * 1) + (Four15.innerText * 1) + (Four16.innerText * 1) + (Four17.innerText * 1) + (Four18.innerText * 1);
-InFour.innerText = inFourValue;
-TotFour.innerText = inFourValue + outFourValue;
+function makeTable(GolfingObject){
+  newApiURL = GolfingObject.courseAPI;
+  let playerCount = GolfingObject.playerCount;
+  let golfAPI = new XMLHttpRequest();
+  golfAPI.open('GET', newApiURL, true);
+  golfAPI.send();
+  golfAPI.onload = function () {
+    if (golfAPI.status === 200) {
+      let golfObj = JSON.parse(golfAPI.responseText).data;
+      let playerRowsEarly = "";
+      let playerRowsLater = "";
+      console.log(golfObj);
+      for (let i = 0; i < playerCount; i++) {
+        let numbnumb = i+1;
+        let numbword = "";
+        switch (numbnumb) {
+          case 1:
+            numbword = "One";
+            break;
+          case 2:
+            numbword = "Two";
+            break;
+          case 3:
+            numbword = "Three";
+            break;
+          case 4:
+            numbword = "Four";
+            break;
+          case 5:
+            numbword = "Five";
+            break;
+          case 6:
+            numbword = "Six";
+            break;
+          case 7:
+            numbword = "Seven";
+            break;
+          case 8:
+            numbword = "Eight";
+            break;
+          default:
+            break;
+        }
+        if(i <= 4){
+          playerRowsEarly += makePlayerRow(numbnumb, numbword);
+        } else if(i >= 5){
+          playerRowsLater += makePlayerRow(numbnumb, numbword);
+        }
+      }
+      golfTableObj.innerHTML = setTableHTML(playerRowsEarly, playerRowsLater);
+      getTableData();
+      setOutInTotal();
 
-let outFiveValue = 0;
-outFiveValue = (Five1.innerText * 1) + (Five2.innerText * 1) + (Five3.innerText * 1) + (Five4.innerText * 1) + (Five5.innerText * 1) + (Five6.innerText * 1) + (Five7.innerText * 1) + (Five8.innerText * 1) + (Five9.innerText * 1);
-OutFive.innerText = outFiveValue;
-let inFiveValue = 0;
-inFiveValue = (Five10.innerText * 1) + (Five11.innerText * 1) + (Five12.innerText * 1) + (Five13.innerText * 1) + (Five14.innerText * 1) + (Five15.innerText * 1) + (Five16.innerText * 1) + (Five17.innerText * 1) + (Five18.innerText * 1);
-InFive.innerText = inFiveValue;
-TotFive.innerText = inFiveValue + outFiveValue;
+    }
+  } 
+}
 
-let outSixValue = 0;
-outSixValue = (Six1.innerText * 1) + (Six2.innerText * 1) + (Six3.innerText * 1) + (Six4.innerText * 1) + (Six5.innerText * 1) + (Six6.innerText * 1) + (Six7.innerText * 1) + (Six8.innerText * 1) + (Six9.innerText * 1);
-OutSix.innerText = outSixValue;
-let inSixValue = 0;
-inSixValue = (Six10.innerText * 1) + (Six11.innerText * 1) + (Six12.innerText * 1) + (Six13.innerText * 1) + (Six14.innerText * 1) + (Six15.innerText * 1) + (Six16.innerText * 1) + (Six17.innerText * 1) + (Six18.innerText * 1);
-InSix.innerText = inSixValue;
-TotSix.innerText = inSixValue + outSixValue;
+let setColorData = function (golfObj, ObjEdit, holeNumb, ) {
+ if (color === "Blue") {
+  ObjEdit.innerText = golfObj.holes[holeNumb-1].teeBoxes[0].meters;
+ } else if (color === "Gray") {
+  ObjEdit.innerText = golfObj.holes[holeNumb-1].teeBoxes[1].meters;
+ } 
+}
 
-let outSevenValue = 0;
-outSevenValue = (Seven1.innerText * 1) + (Seven2.innerText * 1) + (Seven3.innerText * 1) + (Seven4.innerText * 1) + (Seven5.innerText * 1) + (Seven6.innerText * 1) + (Seven7.innerText * 1) + (Seven8.innerText * 1) + (Seven9.innerText * 1);
-OutSeven.innerText = outSevenValue;
-let inSevenValue = 0;
-inSevenValue = (Seven10.innerText * 1) + (Seven11.innerText * 1) + (Seven12.innerText * 1) + (Seven13.innerText * 1) + (Seven14.innerText * 1) + (Seven15.innerText * 1) + (Seven16.innerText * 1) + (Seven17.innerText * 1) + (Seven18.innerText * 1);
-InSeven.innerText = inSevenValue;
-TotSeven.innerText = inSevenValue + outSevenValue;
 
-let outEightValue = 0;
-outEightValue = (Eight1.innerText * 1) + (Eight2.innerText * 1) + (Eight3.innerText * 1) + (Eight4.innerText * 1) + (Eight5.innerText * 1) + (Eight6.innerText * 1) + (Eight7.innerText * 1) + (Eight8.innerText * 1) + (Eight9.innerText * 1);
-OutEight.innerText = outEightValue;
-let inEightValue = 0;
-inEightValue = (Eight10.innerText * 1) + (Eight11.innerText * 1) + (Eight12.innerText * 1) + (Eight13.innerText * 1) + (Eight14.innerText * 1) + (Eight15.innerText * 1) + (Eight16.innerText * 1) + (Eight17.innerText * 1) + (Eight18.innerText * 1);
-InEight.innerText = inEightValue;
-TotEight.innerText = inEightValue + outEightValue;
-//#endregion
+
+
+let setOutInTotal = function(playerCount) {
+  let outBlueValue = 0;
+  outBlueValue = (Blue1.innerText * 1) + (Blue2.innerText * 1) + (Blue3.innerText * 1) + (Blue4.innerText * 1) + (Blue5.innerText * 1) + (Blue6.innerText * 1) + (Blue7.innerText * 1) + (Blue8.innerText * 1) + (Blue9.innerText * 1);
+  OutBlue.innerText = outBlueValue;
+  let inBlueValue = 0;
+  inBlueValue = (Blue10.innerText * 1) + (Blue11.innerText * 1) + (Blue12.innerText * 1) + (Blue13.innerText * 1) + (Blue14.innerText * 1) + (Blue15.innerText * 1) + (Blue16.innerText * 1) + (Blue17.innerText * 1) + (Blue18.innerText * 1);
+  InBlue.innerText = inBlueValue;
+  TotBlue.innerText = inBlueValue + outBlueValue;
+
+  let outGreenValue = 0;
+  outGreenValue = (Green1.innerText * 1) + (Green2.innerText * 1) + (Green3.innerText * 1) + (Green4.innerText * 1) + (Green5.innerText * 1) + (Green6.innerText * 1) + (Green7.innerText * 1) + (Green8.innerText * 1) + (Green9.innerText * 1);
+  OutGreen.innerText = outGreenValue;
+  let inGreenValue = 0;
+  inGreenValue = (Green10.innerText * 1) + (Green11.innerText * 1) + (Green12.innerText * 1) + (Green13.innerText * 1) + (Green14.innerText * 1) + (Green15.innerText * 1) + (Green16.innerText * 1) + (Green17.innerText * 1) + (Green18.innerText * 1);
+  InGreen.innerText = inGreenValue;
+  TotGreen.innerText = inGreenValue + outGreenValue;
+
+  let outGrayValue = 0;
+  outGrayValue = (Gray1.innerText * 1) + (Gray2.innerText * 1) + (Gray3.innerText * 1) + (Gray4.innerText * 1) + (Gray5.innerText * 1) + (Gray6.innerText * 1) + (Gray7.innerText * 1) + (Gray8.innerText * 1) + (Gray9.innerText * 1);
+  OutGray.innerText = outGrayValue;
+  let inGrayValue = 0;
+  inGrayValue = (Gray10.innerText * 1) + (Gray11.innerText * 1) + (Gray12.innerText * 1) + (Gray13.innerText * 1) + (Gray14.innerText * 1) + (Gray15.innerText * 1) + (Gray16.innerText * 1) + (Gray17.innerText * 1) + (Gray18.innerText * 1);
+  InGray.innerText = inGrayValue;
+  TotGray.innerText = inGrayValue + outGrayValue;
+
+  let outParValue = 0;
+  outParValue = (Par1.innerText * 1) + (Par2.innerText * 1) + (Par3.innerText * 1) + (Par4.innerText * 1) + (Par5.innerText * 1) + (Par6.innerText * 1) + (Par7.innerText * 1) + (Par8.innerText * 1) + (Par9.innerText * 1);
+  OutPar.innerText = outParValue;
+  let inParValue = 0;
+  inParValue = (Par10.innerText * 1) + (Par11.innerText * 1) + (Par12.innerText * 1) + (Par13.innerText * 1) + (Par14.innerText * 1) + (Par15.innerText * 1) + (Par16.innerText * 1) + (Par17.innerText * 1) + (Par18.innerText * 1);
+  InPar.innerText = inParValue;
+  TotPar.innerText = inParValue + outParValue;
+
+  let outLGreenValue = 0;
+  outLGreenValue = (LGreen1.innerText * 1) + (LGreen2.innerText * 1) + (LGreen3.innerText * 1) + (LGreen4.innerText * 1) + (LGreen5.innerText * 1) + (LGreen6.innerText * 1) + (LGreen7.innerText * 1) + (LGreen8.innerText * 1) + (LGreen9.innerText * 1);
+  OutLGreen.innerText = outLGreenValue;
+  let inLGreenValue = 0;
+  inLGreenValue = (LGreen10.innerText * 1) + (LGreen11.innerText * 1) + (LGreen12.innerText * 1) + (LGreen13.innerText * 1) + (LGreen14.innerText * 1) + (LGreen15.innerText * 1) + (LGreen16.innerText * 1) + (LGreen17.innerText * 1) + (LGreen18.innerText * 1);
+  InLGreen.innerText = inLGreenValue;
+  TotLGreen.innerText = inLGreenValue + outLGreenValue;
+
+  let outOneValue = 0;
+  outOneValue = (One1.value * 1) + (One2.value * 1) + (One3.value * 1) + (One4.value * 1) + (One5.value * 1) + (One6.value * 1) + (One7.value * 1) + (One8.value * 1) + (One9.value * 1);
+  OutOne.innerText = outOneValue;
+  let inOneValue = 0;
+  inOneValue = (One10.value * 1) + (One11.value * 1) + (One12.value * 1) + (One13.value * 1) + (One14.value * 1) + (One15.value * 1) + (One16.value * 1) + (One17.value * 1) + (One18.value * 1);
+  InOne.innerText = inOneValue;
+  TotOne.innerText = inOneValue + outOneValue;
+
+  if(playerCount >= 2){
+    let outTwoValue = 0;
+    outTwoValue = (Two1.value * 1) + (Two2.value * 1) + (Two3.value * 1) + (Two4.value * 1) + (Two5.value * 1) + (Two6.value * 1) + (Two7.value * 1) + (Two8.value * 1) + (Two9.value * 1);
+    OutTwo.innerText = outTwoValue;
+    let inTwoValue = 0;
+    inTwoValue = (Two10.value * 1) + (Two11.value * 1) + (Two12.value * 1) + (Two13.value * 1) + (Two14.value * 1) + (Two15.value * 1) + (Two16.value * 1) + (Two17.value * 1) + (Two18.value * 1);
+    InTwo.innerText = inTwoValue;
+    TotTwo.innerText = inTwoValue + outTwoValue;
+  }   if(playerCount >= 3){
+    let outThreeValue = 0;
+    outThreeValue = (Three1.value * 1) + (Three2.value * 1) + (Three3.value * 1) + (Three4.value * 1) + (Three5.value * 1) + (Three6.value * 1) + (Three7.value * 1) + (Three8.value * 1) + (Three9.value * 1);
+    OutThree.innerText = outThreeValue;
+    let inThreeValue = 0;
+    inThreeValue = (Three10.value * 1) + (Three11.value * 1) + (Three12.value * 1) + (Three13.value * 1) + (Three14.value * 1) + (Three15.value * 1) + (Three16.value * 1) + (Three17.value * 1) + (Three18.value * 1);
+    InThree.innerText = inThreeValue;
+    TotThree.innerText = inThreeValue + outThreeValue;
+  }  if(playerCount >= 4){
+    let outFourValue = 0;
+    outFourValue = (Four1.value * 1) + (Four2.value * 1) + (Four3.value * 1) + (Four4.value * 1) + (Four5.value * 1) + (Four6.value * 1) + (Four7.value * 1) + (Four8.value * 1) + (Four9.value * 1);
+    OutFour.innerText = outFourValue;
+    let inFourValue = 0;
+    inFourValue = (Four10.value * 1) + (Four11.value * 1) + (Four12.value * 1) + (Four13.value * 1) + (Four14.value * 1) + (Four15.value * 1) + (Four16.value * 1) + (Four17.value * 1) + (Four18.value * 1);
+    InFour.innerText = inFourValue;
+    TotFour.innerText = inFourValue + outFourValue;
+  }  if(playerCount >= 5){
+    let outFiveValue = 0;
+    outFiveValue = (Five1.value * 1) + (Five2.value * 1) + (Five3.value * 1) + (Five4.value * 1) + (Five5.value * 1) + (Five6.value * 1) + (Five7.value * 1) + (Five8.value * 1) + (Five9.value * 1);
+    OutFive.innerText = outFiveValue;
+    let inFiveValue = 0;
+    inFiveValue = (Five10.value * 1) + (Five11.value * 1) + (Five12.value * 1) + (Five13.value * 1) + (Five14.value * 1) + (Five15.value * 1) + (Five16.value * 1) + (Five17.value * 1) + (Five18.value * 1);
+    InFive.innerText = inFiveValue;
+    TotFive.innerText = inFiveValue + outFiveValue;
+  }  if(playerCount >= 6){
+    let outSixValue = 0;
+    outSixValue = (Six1.value * 1) + (Six2.value * 1) + (Six3.value * 1) + (Six4.value * 1) + (Six5.value * 1) + (Six6.value * 1) + (Six7.value * 1) + (Six8.value * 1) + (Six9.value * 1);
+    OutSix.innerText = outSixValue;
+    let inSixValue = 0;
+    inSixValue = (Six10.value * 1) + (Six11.value * 1) + (Six12.value * 1) + (Six13.value * 1) + (Six14.value * 1) + (Six15.value * 1) + (Six16.value * 1) + (Six17.value * 1) + (Six18.value * 1);
+    InSix.innerText = inSixValue;
+    TotSix.innerText = inSixValue + outSixValue;
+  }  if(playerCount >= 7){
+    let outSevenValue = 0;
+    outSevenValue = (Seven1.value * 1) + (Seven2.value * 1) + (Seven3.value * 1) + (Seven4.value * 1) + (Seven5.value * 1) + (Seven6.value * 1) + (Seven7.value * 1) + (Seven8.value * 1) + (Seven9.value * 1);
+    OutSeven.innerText = outSevenValue;
+    let inSevenValue = 0;
+    inSevenValue = (Seven10.value * 1) + (Seven11.value * 1) + (Seven12.value * 1) + (Seven13.value * 1) + (Seven14.value * 1) + (Seven15.value * 1) + (Seven16.value * 1) + (Seven17.value * 1) + (Seven18.value * 1);
+    InSeven.innerText = inSevenValue;
+    TotSeven.innerText = inSevenValue + outSevenValue;
+  }  if(playerCount >= 8){
+    let outEightValue = 0;
+    outEightValue = (Eight1.value * 1) + (Eight2.value * 1) + (Eight3.value * 1) + (Eight4.value * 1) + (Eight5.value * 1) + (Eight6.value * 1) + (Eight7.value * 1) + (Eight8.value * 1) + (Eight9.value * 1);
+    OutEight.innerText = outEightValue;
+    let inEightValue = 0;
+    inEightValue = (Eight10.value * 1) + (Eight11.value * 1) + (Eight12.value * 1) + (Eight13.value * 1) + (Eight14.value * 1) + (Eight15.value * 1) + (Eight16.value * 1) + (Eight17.value * 1) + (Eight18.value * 1);
+    InEight.innerText = inEightValue;
+    TotEight.innerText = inEightValue + outEightValue;
+  }
+}

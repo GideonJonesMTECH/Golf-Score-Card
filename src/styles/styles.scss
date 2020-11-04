@@ -26,6 +26,21 @@ table {
     font-size: larger;
     font-weight: 700;
   }
+  .PlayerRow {
+    td {
+      padding: 0;
+      margin: 0;
+      width: 1em;
+      input {
+        // width: 60%;
+        padding-top: 10%;
+        padding-bottom: 10%;
+        // margin: 10%;
+        border: none;
+        outline: none;
+      }
+    }
+  }
   border: 1px solid black;
   border-collapse: collapse;
 }
