@@ -600,10 +600,8 @@ function makeTable(GolfingObject){
           </tr>`
           }
           teeBoxRows += AddRow;
-          console.log(j + " "+ AddRow);
         }
       }
-      console.log(teeBoxRows);
       golfTableObj.innerHTML = setTableHTML(teeBoxRows, playerRowsEarly, playerRowsLater);       //Fox Hollow (1:Black 2:Blue 3:White 4:Red 5:"Auto Change Location") Thxgiving (1:Black 2:Blue 3:White 4:Red) Spanish (1:Blue 2:White 3:Yellow)
       getTableData();
       setColorData(golfObj);
@@ -616,17 +614,13 @@ function makeTable(GolfingObject){
 }
 
 let setColorData = function (golfObj) {
-  golfObjShort = golfObj.holes[0].teeBoxes;
-  for (let j = 0; j < 18; j++) {
-    console.log("Hole "+ (j+1));
-  for (let i = 0; i < golfObj.holes[j].teeBoxes.length; i++) {
-    if(i < 4){
-      let value = golfObj.holes[j].teeBoxes[i].meters;
-      console.log("This is Tee Box "+(i+1)+". The value is " + value);
-
+  for (let i = 0; i < 18; i++) {
+    for(let j =0; j < golfObj.holes[i].teeBoxes.length; j++){
+      console.log("Hole: "+(i+1) + " Row: "+(j+1) + " Data: "+golfObj.holes[i].teeBoxes[j].meters);
+      //set each tee box
     }
+    //set par
   }
-}
 
 }
 
