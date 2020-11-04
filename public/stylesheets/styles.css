@@ -33,6 +33,7 @@ table #RedRow {
 table #BlackRow {
   background-color: black;
   color: white;
+  border: 1px solid white;
 }
 table #title {
   font-size: larger;

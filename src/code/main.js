@@ -22,51 +22,51 @@ const InBlue = document.getElementById("InBlue");
 const OutBlue = document.getElementById("OutBlue");
 const TotBlue = document.getElementById("TotBlue");
 //#endregion
-//#region GREEN
-const Green1 = document.getElementById("Green1");
-const Green2 = document.getElementById("Green2");
-const Green3 = document.getElementById("Green3");
-const Green4 = document.getElementById("Green4");
-const Green5 = document.getElementById("Green5");
-const Green6 = document.getElementById("Green6");
-const Green7 = document.getElementById("Green7");
-const Green8 = document.getElementById("Green8");
-const Green9 = document.getElementById("Green9");
-const Green10 = document.getElementById("Green10");
-const Green11 = document.getElementById("Green11");
-const Green12 = document.getElementById("Green12");
-const Green13 = document.getElementById("Green13");
-const Green14 = document.getElementById("Green14");
-const Green15 = document.getElementById("Green15");
-const Green16 = document.getElementById("Green16");
-const Green17 = document.getElementById("Green17");
-const Green18 = document.getElementById("Green18");
-const InGreen = document.getElementById("InGreen");
-const OutGreen = document.getElementById("OutGreen");
-const TotGreen = document.getElementById("TotGreen");
+//#region White
+const White1 = document.getElementById("White1");
+const White2 = document.getElementById("White2");
+const White3 = document.getElementById("White3");
+const White4 = document.getElementById("White4");
+const White5 = document.getElementById("White5");
+const White6 = document.getElementById("White6");
+const White7 = document.getElementById("White7");
+const White8 = document.getElementById("White8");
+const White9 = document.getElementById("White9");
+const White10 = document.getElementById("White10");
+const White11 = document.getElementById("White11");
+const White12 = document.getElementById("White12");
+const White13 = document.getElementById("White13");
+const White14 = document.getElementById("White14");
+const White15 = document.getElementById("White15");
+const White16 = document.getElementById("White16");
+const White17 = document.getElementById("White17");
+const White18 = document.getElementById("White18");
+const InWhite = document.getElementById("InWhite");
+const OutWhite = document.getElementById("OutWhite");
+const TotWhite = document.getElementById("TotWhite");
 //#endregion
-//#region GRAY
-const Gray1 = document.getElementById('Gray1');
-const Gray2 = document.getElementById('Gray2');
-const Gray3 = document.getElementById('Gray3');
-const Gray4 = document.getElementById('Gray4');
-const Gray5 = document.getElementById('Gray5');
-const Gray6 = document.getElementById('Gray6');
-const Gray7 = document.getElementById('Gray7');
-const Gray8 = document.getElementById('Gray8');
-const Gray9 = document.getElementById('Gray9');
-const Gray10 = document.getElementById('Gray10');
-const Gray11 = document.getElementById('Gray11');
-const Gray12 = document.getElementById('Gray12');
-const Gray13 = document.getElementById('Gray13');
-const Gray14 = document.getElementById('Gray14');
-const Gray15 = document.getElementById('Gray15');
-const Gray16 = document.getElementById('Gray16');
-const Gray17 = document.getElementById('Gray17');
-const Gray18 = document.getElementById('Gray18');
-const InGray = document.getElementById('InGray');
-const OutGray = document.getElementById('OutGray');
-const TotGray = document.getElementById('TotGray');
+//#region Red
+const Red1 = document.getElementById('Red1');
+const Red2 = document.getElementById('Red2');
+const Red3 = document.getElementById('Red3');
+const Red4 = document.getElementById('Red4');
+const Red5 = document.getElementById('Red5');
+const Red6 = document.getElementById('Red6');
+const Red7 = document.getElementById('Red7');
+const Red8 = document.getElementById('Red8');
+const Red9 = document.getElementById('Red9');
+const Red10 = document.getElementById('Red10');
+const Red11 = document.getElementById('Red11');
+const Red12 = document.getElementById('Red12');
+const Red13 = document.getElementById('Red13');
+const Red14 = document.getElementById('Red14');
+const Red15 = document.getElementById('Red15');
+const Red16 = document.getElementById('Red16');
+const Red17 = document.getElementById('Red17');
+const Red18 = document.getElementById('Red18');
+const InRed = document.getElementById('InRed');
+const OutRed = document.getElementById('OutRed');
+const TotRed = document.getElementById('TotRed');
 //#endregion
 //#region PAR
 const Par1 = document.getElementById('Par1');
@@ -91,68 +91,51 @@ const InPar = document.getElementById('InPar');
 const OutPar = document.getElementById('OutPar');
 const TotPar = document.getElementById('TotPar');
 //#endregion
-//#region LIGHT GREEN
-const LGreen1 = document.getElementById('LGreen1');
-const LGreen2 = document.getElementById('LGreen2');
-const LGreen3 = document.getElementById('LGreen3');
-const LGreen4 = document.getElementById('LGreen4');
-const LGreen5 = document.getElementById('LGreen5');
-const LGreen6 = document.getElementById('LGreen6');
-const LGreen7 = document.getElementById('LGreen7');
-const LGreen8 = document.getElementById('LGreen8');
-const LGreen9 = document.getElementById('LGreen9');
-const LGreen10 = document.getElementById('LGreen10');
-const LGreen11 = document.getElementById('LGreen11');
-const LGreen12 = document.getElementById('LGreen12');
-const LGreen13 = document.getElementById('LGreen13');
-const LGreen14 = document.getElementById('LGreen14');
-const LGreen15 = document.getElementById('LGreen15');
-const LGreen16 = document.getElementById('LGreen16');
-const LGreen17 = document.getElementById('LGreen17');
-const LGreen18 = document.getElementById('LGreen18');
-const InLGreen = document.getElementById('InLGreen');
-const OutLGreen = document.getElementById('OutLGreen');
-const TotLGreen = document.getElementById('TotLGreen');
+//#region Black
+const Black1 = document.getElementById('Black1');
+const Black2 = document.getElementById('Black2');
+const Black3 = document.getElementById('Black3');
+const Black4 = document.getElementById('Black4');
+const Black5 = document.getElementById('Black5');
+const Black6 = document.getElementById('Black6');
+const Black7 = document.getElementById('Black7');
+const Black8 = document.getElementById('Black8');
+const Black9 = document.getElementById('Black9');
+const Black10 = document.getElementById('Black10');
+const Black11 = document.getElementById('Black11');
+const Black12 = document.getElementById('Black12');
+const Black13 = document.getElementById('Black13');
+const Black14 = document.getElementById('Black14');
+const Black15 = document.getElementById('Black15');
+const Black16 = document.getElementById('Black16');
+const Black17 = document.getElementById('Black17');
+const Black18 = document.getElementById('Black18');
+const InBlack = document.getElementById('InBlack');
+const OutBlack = document.getElementById('OutBlack');
+const TotBlack = document.getElementById('TotBlack');
 //#endregion
-//#region HANDICAP
-const Handi1 = document.getElementById('Handi1');
-const Handi2 = document.getElementById('Handi2');
-const Handi3 = document.getElementById('Handi3');
-const Handi4 = document.getElementById('Handi4');
-const Handi5 = document.getElementById('Handi5');
-const Handi6 = document.getElementById('Handi6');
-const Handi7 = document.getElementById('Handi7');
-const Handi8 = document.getElementById('Handi8');
-const Handi9 = document.getElementById('Handi9');
-const Handi10 = document.getElementById('Handi10');
-const Handi11 = document.getElementById('Handi11');
-const Handi12 = document.getElementById('Handi12');
-const Handi13 = document.getElementById('Handi13');
-const Handi14 = document.getElementById('Handi14');
-const Handi15 = document.getElementById('Handi15');
-const Handi16 = document.getElementById('Handi16');
-const Handi17 = document.getElementById('Handi17');
-const Handi18 = document.getElementById('Handi18');
-//#endregion
-//#region LADIES' HANDICAP
-const LHandi1 = document.getElementById('LHandi1');
-const LHandi2 = document.getElementById('LHandi2');
-const LHandi3 = document.getElementById('LHandi3');
-const LHandi4 = document.getElementById('LHandi4');
-const LHandi5 = document.getElementById('LHandi5');
-const LHandi6 = document.getElementById('LHandi6');
-const LHandi7 = document.getElementById('LHandi7');
-const LHandi8 = document.getElementById('LHandi8');
-const LHandi9 = document.getElementById('LHandi9');
-const LHandi10 = document.getElementById('LHandi10');
-const LHandi11 = document.getElementById('LHandi11');
-const LHandi12 = document.getElementById('LHandi12');
-const LHandi13 = document.getElementById('LHandi13');
-const LHandi14 = document.getElementById('LHandi14');
-const LHandi15 = document.getElementById('LHandi15');
-const LHandi16 = document.getElementById('LHandi16');
-const LHandi17 = document.getElementById('LHandi17');
-const LHandi18 = document.getElementById('LHandi18');
+//#region Yellow
+const Yellow1 = document.getElementById('Yellow1');
+const Yellow2 = document.getElementById('Yellow2');
+const Yellow3 = document.getElementById('Yellow3');
+const Yellow4 = document.getElementById('Yellow4');
+const Yellow5 = document.getElementById('Yellow5');
+const Yellow6 = document.getElementById('Yellow6');
+const Yellow7 = document.getElementById('Yellow7');
+const Yellow8 = document.getElementById('Yellow8');
+const Yellow9 = document.getElementById('Yellow9');
+const Yellow10 = document.getElementById('Yellow10');
+const Yellow11 = document.getElementById('Yellow11');
+const Yellow12 = document.getElementById('Yellow12');
+const Yellow13 = document.getElementById('Yellow13');
+const Yellow14 = document.getElementById('Yellow14');
+const Yellow15 = document.getElementById('Yellow15');
+const Yellow16 = document.getElementById('Yellow16');
+const Yellow17 = document.getElementById('Yellow17');
+const Yellow18 = document.getElementById('Yellow18');
+const InYellow = document.getElementById('InYellow');
+const OutYellow = document.getElementById('OutYellow');
+const TotYellow = document.getElementById('TotYellow');
 //#endregion
 //#region Player1
 let One1 = document.getElementById('One1')
@@ -487,148 +470,143 @@ function makeTable(GolfingObject){
         }
       }
       for (let j = 0; j < golfObj.holes[0].teeBoxes.length; j++){
-        if(j == 4) return;
-        let AddRow = "";
-        let teeBoxShortCut = golfObj.holes[0].teeBoxes[j].teeColorType.toLowerCase();
-        if(teeBoxShortCut == "black"){
-          let AddRow = 
-          `<tr id="BlackRow">
-          <th>Black</th>
-          <th id="Black1"></th>
-          <th id="Black2"></th>
-          <th id="Black3"></th>
-          <th id="Black4"></th>
-          <th id="Black5"></th>
-          <th id="Black6"></th>
-          <th id="Black7"></th>
-          <th id="Black8"></th>
-          <th id="Black9"></th>
-          <th id="OutBlack"></th>
-          <th id="Black10"></th>
-          <th id="Black11"></th>
-          <th id="Black12"></th>
-          <th id="Black13"></th>
-          <th id="Black14"></th>
-          <th id="Black15"></th>
-          <th id="Black16"></th>
-          <th id="Black17"></th>
-          <th id="Black18"></th>
-          <th id="InBlack"></th>
-          <th id="TotBlack"></th>
-        </tr>`
-        } else if(teeBoxShortCut == "blue"){
-          AddRow = `<tr id="BlueRow">
-          <th>Blue</th>
-          <th id="Blue1"></th>
-          <th id="Blue2"></th>
-          <th id="Blue3"></th>
-          <th id="Blue4"></th>
-          <th id="Blue5"></th>
-          <th id="Blue6"></th>
-          <th id="Blue7"></th>
-          <th id="Blue8"></th>
-          <th id="Blue9"></th>
-          <th id="OutBlue"></th>
-          <th id="Blue10"></th>
-          <th id="Blue11"></th>
-          <th id="Blue12"></th>
-          <th id="Blue13"></th>
-          <th id="Blue14"></th>
-          <th id="Blue15"></th>
-          <th id="Blue16"></th>
-          <th id="Blue17"></th>
-          <th id="Blue18"></th>
-          <th id="InBlue"></th>
-          <th id="TotBlue"></th>
-        </tr>`
-        } else if(teeBoxShortCut == "white"){
-          AddRow = `<tr id="WhiteRow">
-          <th>White</th>
-          <th id="White1"></th>
-          <th id="White2"></th>
-          <th id="White3"></th>
-          <th id="White4"></th>
-          <th id="White5"></th>
-          <th id="White6"></th>
-          <th id="White7"></th>
-          <th id="White8"></th>
-          <th id="White9"></th>
-          <th id="OutWhite"></th>
-          <th id="White10"></th>
-          <th id="White11"></th>
-          <th id="White12"></th>
-          <th id="White13"></th>
-          <th id="White14"></th>
-          <th id="White15"></th>
-          <th id="White16"></th>
-          <th id="White17"></th>
-          <th id="White18"></th>
-          <th id="InWhite"></th>
-          <th id="TotWhite"></th>
-        </tr>`
-        } else if(teeBoxShortCut == "red"){
-          AddRow = `<tr id="RedRow">
-          <th>Red</th>
-          <th id="Red1"></th>
-          <th id="Red2"></th>
-          <th id="Red3"></th>
-          <th id="Red4"></th>
-          <th id="Red5"></th>
-          <th id="Red6"></th>
-          <th id="Red7"></th>
-          <th id="Red8"></th>
-          <th id="Red9"></th>
-          <th id="OutRed"></th>
-          <th id="Red10"></th>
-          <th id="Red11"></th>
-          <th id="Red12"></th>
-          <th id="Red13"></th>
-          <th id="Red14"></th>
-          <th id="Red15"></th>
-          <th id="Red16"></th>
-          <th id="Red17"></th>
-          <th id="Red18"></th>
-          <th id="InRed"></th>
-          <th id="TotRed"></th>
-        </tr>`
-        } else if(teeBoxShortCut == "yellow"){
-          AddRow = `<tr id="YellowRow">
-          <th>Yellow</th>
-          <th id="Yellow1"></th>
-          <th id="Yellow2"></th>
-          <th id="Yellow3"></th>
-          <th id="Yellow4"></th>
-          <th id="Yellow5"></th>
-          <th id="Yellow6"></th>
-          <th id="Yellow7"></th>
-          <th id="Yellow8"></th>
-          <th id="Yellow9"></th>
-          <th id="OutYellow"></th>
-          <th id="Yellow10"></th>
-          <th id="Yellow11"></th>
-          <th id="Yellow12"></th>
-          <th id="Yellow13"></th>
-          <th id="Yellow14"></th>
-          <th id="Yellow15"></th>
-          <th id="Yellow16"></th>
-          <th id="Yellow17"></th>
-          <th id="Yellow18"></th>
-          <th id="InYellow"></th>
-          <th id="TotYellow"></th>
-        </tr>`
+        if(j < 4){
+          let AddRow = "";
+          let teeBoxShortCut = golfObj.holes[0].teeBoxes[j].teeColorType.toLowerCase();
+          if(teeBoxShortCut == "black"){
+            AddRow = `<tr id="BlackRow">
+            <th>Black</th>
+            <th id="Black1"></th>
+            <th id="Black2"></th>
+            <th id="Black3"></th>
+            <th id="Black4"></th>
+            <th id="Black5"></th>
+            <th id="Black6"></th>
+            <th id="Black7"></th>
+            <th id="Black8"></th>
+            <th id="Black9"></th>
+            <th id="OutBlack"></th>
+            <th id="Black10"></th>
+            <th id="Black11"></th>
+            <th id="Black12"></th>
+            <th id="Black13"></th>
+            <th id="Black14"></th>
+            <th id="Black15"></th>
+            <th id="Black16"></th>
+            <th id="Black17"></th>
+            <th id="Black18"></th>
+            <th id="InBlack"></th>
+            <th id="TotBlack"></th>
+          </tr>`
+          } else if(teeBoxShortCut == "blue"){
+            AddRow = `<tr id="BlueRow">
+            <th>Blue</th>
+            <th id="Blue1"></th>
+            <th id="Blue2"></th>
+            <th id="Blue3"></th>
+            <th id="Blue4"></th>
+            <th id="Blue5"></th>
+            <th id="Blue6"></th>
+            <th id="Blue7"></th>
+            <th id="Blue8"></th>
+            <th id="Blue9"></th>
+            <th id="OutBlue"></th>
+            <th id="Blue10"></th>
+            <th id="Blue11"></th>
+            <th id="Blue12"></th>
+            <th id="Blue13"></th>
+            <th id="Blue14"></th>
+            <th id="Blue15"></th>
+            <th id="Blue16"></th>
+            <th id="Blue17"></th>
+            <th id="Blue18"></th>
+            <th id="InBlue"></th>
+            <th id="TotBlue"></th>
+          </tr>`
+          } else if(teeBoxShortCut == "white"){
+            AddRow = `<tr id="WhiteRow">
+            <th>White</th>
+            <th id="White1"></th>
+            <th id="White2"></th>
+            <th id="White3"></th>
+            <th id="White4"></th>
+            <th id="White5"></th>
+            <th id="White6"></th>
+            <th id="White7"></th>
+            <th id="White8"></th>
+            <th id="White9"></th>
+            <th id="OutWhite"></th>
+            <th id="White10"></th>
+            <th id="White11"></th>
+            <th id="White12"></th>
+            <th id="White13"></th>
+            <th id="White14"></th>
+            <th id="White15"></th>
+            <th id="White16"></th>
+            <th id="White17"></th>
+            <th id="White18"></th>
+            <th id="InWhite"></th>
+            <th id="TotWhite"></th>
+          </tr>`
+          } else if(teeBoxShortCut == "red"){
+            AddRow = `<tr id="RedRow">
+            <th>Red</th>
+            <th id="Red1"></th>
+            <th id="Red2"></th>
+            <th id="Red3"></th>
+            <th id="Red4"></th>
+            <th id="Red5"></th>
+            <th id="Red6"></th>
+            <th id="Red7"></th>
+            <th id="Red8"></th>
+            <th id="Red9"></th>
+            <th id="OutRed"></th>
+            <th id="Red10"></th>
+            <th id="Red11"></th>
+            <th id="Red12"></th>
+            <th id="Red13"></th>
+            <th id="Red14"></th>
+            <th id="Red15"></th>
+            <th id="Red16"></th>
+            <th id="Red17"></th>
+            <th id="Red18"></th>
+            <th id="InRed"></th>
+            <th id="TotRed"></th>
+          </tr>`
+          } else if(teeBoxShortCut == "yellow"){
+            AddRow = `<tr id="YellowRow">
+            <th>Yellow</th>
+            <th id="Yellow1"></th>
+            <th id="Yellow2"></th>
+            <th id="Yellow3"></th>
+            <th id="Yellow4"></th>
+            <th id="Yellow5"></th>
+            <th id="Yellow6"></th>
+            <th id="Yellow7"></th>
+            <th id="Yellow8"></th>
+            <th id="Yellow9"></th>
+            <th id="OutYellow"></th>
+            <th id="Yellow10"></th>
+            <th id="Yellow11"></th>
+            <th id="Yellow12"></th>
+            <th id="Yellow13"></th>
+            <th id="Yellow14"></th>
+            <th id="Yellow15"></th>
+            <th id="Yellow16"></th>
+            <th id="Yellow17"></th>
+            <th id="Yellow18"></th>
+            <th id="InYellow"></th>
+            <th id="TotYellow"></th>
+          </tr>`
+          }
+          teeBoxRows += AddRow;
+          console.log(j + " "+ AddRow);
         }
-        teeBoxRows += AddRow;
-        console.log(j + " "+ AddRow);
       }
       console.log(teeBoxRows);
-      golfTableObj.innerHTML = setTableHTML(teeBoxRows, playerRowsEarly, playerRowsLater);
-      //Fox Hollow (1:Black 2:Blue 3:White 4:Red 5:"Auto Change Location")
-      //Thxgiving (1:Black 2:Blue 3:White 4:Red)
-      //Spanish (1:Blue 2:White 3:Yellow)
-
-
-
+      golfTableObj.innerHTML = setTableHTML(teeBoxRows, playerRowsEarly, playerRowsLater);       //Fox Hollow (1:Black 2:Blue 3:White 4:Red 5:"Auto Change Location") Thxgiving (1:Black 2:Blue 3:White 4:Red) Spanish (1:Blue 2:White 3:Yellow)
       getTableData();
+      setColorData(golfObj);
       // setColorData(golfObj, "Blue");
       // setColorData(golfObj, "Green");
       // setColorData(golfObj, "Gray");
@@ -637,28 +615,24 @@ function makeTable(GolfingObject){
   } 
 }
 
-let setColorData = function (golfObj, color) {
- if (color === "Blue") {
-  for(let i = 0; i < 18; i++){
-    `Blue${i+1}`.innerText = golfObj.holes[i].teeBoxes[0].meters;
-    console.log(`Blue${i+1}`.innerText)
-  }
- } else if (color === "Green") {
-  for(let i = 0; i < 18; i++){
-    `Green${i+1}`.innerText = golfObj.holes[i].teeBoxes[1].meters;
-  }
- } else if (color === "Gray") {
-  for(let i = 0; i < 18; i++){
-    `Gray${i+1}`.innerText = golfObj.holes[i].teeBoxes[2].meters;
-  }
- }
-}
-// BLUE   ObjEdit.innerText = golfObj.holes[holeNumb-1].teeBoxes[0].meters;
-// GRAY   ObjEdit.innerText = golfObj.holes[holeNumb-1].teeBoxes[1].meters;
+let setColorData = function (golfObj) {
+  golfObjShort = golfObj.holes[0].teeBoxes;
+  for (let j = 0; j < 18; j++) {
+    console.log("Hole "+ (j+1));
+  for (let i = 0; i < golfObj.holes[j].teeBoxes.length; i++) {
+    if(i < 4){
+      let value = golfObj.holes[j].teeBoxes[i].meters;
+      console.log("This is Tee Box "+(i+1)+". The value is " + value);
 
+    }
+  }
+}
+
+}
 
 
 let setOutInTotal = function(playerCount) {
+  if(Blue1){
   let outBlueValue = 0;
   outBlueValue = (Blue1.innerText * 1) + (Blue2.innerText * 1) + (Blue3.innerText * 1) + (Blue4.innerText * 1) + (Blue5.innerText * 1) + (Blue6.innerText * 1) + (Blue7.innerText * 1) + (Blue8.innerText * 1) + (Blue9.innerText * 1);
   OutBlue.innerText = outBlueValue;
@@ -666,23 +640,43 @@ let setOutInTotal = function(playerCount) {
   inBlueValue = (Blue10.innerText * 1) + (Blue11.innerText * 1) + (Blue12.innerText * 1) + (Blue13.innerText * 1) + (Blue14.innerText * 1) + (Blue15.innerText * 1) + (Blue16.innerText * 1) + (Blue17.innerText * 1) + (Blue18.innerText * 1);
   InBlue.innerText = inBlueValue;
   TotBlue.innerText = inBlueValue + outBlueValue;
-
-  let outGreenValue = 0;
-  outGreenValue = (Green1.innerText * 1) + (Green2.innerText * 1) + (Green3.innerText * 1) + (Green4.innerText * 1) + (Green5.innerText * 1) + (Green6.innerText * 1) + (Green7.innerText * 1) + (Green8.innerText * 1) + (Green9.innerText * 1);
-  OutGreen.innerText = outGreenValue;
-  let inGreenValue = 0;
-  inGreenValue = (Green10.innerText * 1) + (Green11.innerText * 1) + (Green12.innerText * 1) + (Green13.innerText * 1) + (Green14.innerText * 1) + (Green15.innerText * 1) + (Green16.innerText * 1) + (Green17.innerText * 1) + (Green18.innerText * 1);
-  InGreen.innerText = inGreenValue;
-  TotGreen.innerText = inGreenValue + outGreenValue;
-
-  let outGrayValue = 0;
-  outGrayValue = (Gray1.innerText * 1) + (Gray2.innerText * 1) + (Gray3.innerText * 1) + (Gray4.innerText * 1) + (Gray5.innerText * 1) + (Gray6.innerText * 1) + (Gray7.innerText * 1) + (Gray8.innerText * 1) + (Gray9.innerText * 1);
-  OutGray.innerText = outGrayValue;
-  let inGrayValue = 0;
-  inGrayValue = (Gray10.innerText * 1) + (Gray11.innerText * 1) + (Gray12.innerText * 1) + (Gray13.innerText * 1) + (Gray14.innerText * 1) + (Gray15.innerText * 1) + (Gray16.innerText * 1) + (Gray17.innerText * 1) + (Gray18.innerText * 1);
-  InGray.innerText = inGrayValue;
-  TotGray.innerText = inGrayValue + outGrayValue;
-
+}
+if(Yellow1) {
+  let outYellowValue = 0;
+  outYellowValue = (Yellow1.innerText * 1) + (Yellow2.innerText * 1) + (Yellow3.innerText * 1) + (Yellow4.innerText * 1) + (Yellow5.innerText * 1) + (Yellow6.innerText * 1) + (Yellow7.innerText * 1) + (Yellow8.innerText * 1) + (Yellow9.innerText * 1);
+  OutYellow.innerText = outYellowValue;
+  let inYellowValue = 0;
+  inYellowValue = (Yellow10.innerText * 1) + (Yellow11.innerText * 1) + (Yellow12.innerText * 1) + (Yellow13.innerText * 1) + (Yellow14.innerText * 1) + (Yellow15.innerText * 1) + (Yellow16.innerText * 1) + (Yellow17.innerText * 1) + (Yellow18.innerText * 1);
+  InYellow.innerText = inYellowValue;
+  TotYellow.innerText = inYellowValue + outYellowValue;
+}
+  if(White1){
+  let outWhiteValue = 0;
+  outWhiteValue = (White1.innerText * 1) + (White2.innerText * 1) + (White3.innerText * 1) + (White4.innerText * 1) + (White5.innerText * 1) + (White6.innerText * 1) + (White7.innerText * 1) + (White8.innerText * 1) + (White9.innerText * 1);
+  OutWhite.innerText = outWhiteValue;
+  let inWhiteValue = 0;
+  inWhiteValue = (White10.innerText * 1) + (White11.innerText * 1) + (White12.innerText * 1) + (White13.innerText * 1) + (White14.innerText * 1) + (White15.innerText * 1) + (White16.innerText * 1) + (White17.innerText * 1) + (White18.innerText * 1);
+  InWhite.innerText = inWhiteValue;
+  TotWhite.innerText = inWhiteValue + outWhiteValue;
+  }
+  if(Black1) {
+    let outBlackValue = 0;
+    outBlackValue = (Black1.innerText * 1) + (Black2.innerText * 1) + (Black3.innerText * 1) + (Black4.innerText * 1) + (Black5.innerText * 1) + (Black6.innerText * 1) + (Black7.innerText * 1) + (Black8.innerText * 1) + (Black9.innerText * 1);
+    OutBlack.innerText = outBlackValue;
+    let inBlackValue = 0;
+    inBlackValue = (Black10.innerText * 1) + (Black11.innerText * 1) + (Black12.innerText * 1) + (Black13.innerText * 1) + (Black14.innerText * 1) + (Black15.innerText * 1) + (Black16.innerText * 1) + (Black17.innerText * 1) + (Black18.innerText * 1);
+    InBlack.innerText = inBlackValue;
+    TotBlack.innerText = inBlackValue + outBlackValue;
+  }
+  if(Red1) {
+    let outRedValue = 0;
+    outRedValue = (Red1.innerText * 1) + (Red2.innerText * 1) + (Red3.innerText * 1) + (Red4.innerText * 1) + (Red5.innerText * 1) + (Red6.innerText * 1) + (Red7.innerText * 1) + (Red8.innerText * 1) + (Red9.innerText * 1);
+    OutRed.innerText = outRedValue;
+    let inRedValue = 0;
+    inRedValue = (Red10.innerText * 1) + (Red11.innerText * 1) + (Red12.innerText * 1) + (Red13.innerText * 1) + (Red14.innerText * 1) + (Red15.innerText * 1) + (Red16.innerText * 1) + (Red17.innerText * 1) + (Red18.innerText * 1);
+    InRed.innerText = inRedValue;
+    TotRed.innerText = inRedValue + outRedValue;
+  }
   let outParValue = 0;
   outParValue = (Par1.innerText * 1) + (Par2.innerText * 1) + (Par3.innerText * 1) + (Par4.innerText * 1) + (Par5.innerText * 1) + (Par6.innerText * 1) + (Par7.innerText * 1) + (Par8.innerText * 1) + (Par9.innerText * 1);
   OutPar.innerText = outParValue;
@@ -690,14 +684,6 @@ let setOutInTotal = function(playerCount) {
   inParValue = (Par10.innerText * 1) + (Par11.innerText * 1) + (Par12.innerText * 1) + (Par13.innerText * 1) + (Par14.innerText * 1) + (Par15.innerText * 1) + (Par16.innerText * 1) + (Par17.innerText * 1) + (Par18.innerText * 1);
   InPar.innerText = inParValue;
   TotPar.innerText = inParValue + outParValue;
-
-  let outLGreenValue = 0;
-  outLGreenValue = (LGreen1.innerText * 1) + (LGreen2.innerText * 1) + (LGreen3.innerText * 1) + (LGreen4.innerText * 1) + (LGreen5.innerText * 1) + (LGreen6.innerText * 1) + (LGreen7.innerText * 1) + (LGreen8.innerText * 1) + (LGreen9.innerText * 1);
-  OutLGreen.innerText = outLGreenValue;
-  let inLGreenValue = 0;
-  inLGreenValue = (LGreen10.innerText * 1) + (LGreen11.innerText * 1) + (LGreen12.innerText * 1) + (LGreen13.innerText * 1) + (LGreen14.innerText * 1) + (LGreen15.innerText * 1) + (LGreen16.innerText * 1) + (LGreen17.innerText * 1) + (LGreen18.innerText * 1);
-  InLGreen.innerText = inLGreenValue;
-  TotLGreen.innerText = inLGreenValue + outLGreenValue;
 
   let outOneValue = 0;
   outOneValue = (One1.value * 1) + (One2.value * 1) + (One3.value * 1) + (One4.value * 1) + (One5.value * 1) + (One6.value * 1) + (One7.value * 1) + (One8.value * 1) + (One9.value * 1);
