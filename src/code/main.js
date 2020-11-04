@@ -374,7 +374,7 @@ let makePlayerRow = function (numbnumb, numbword) {
 let playerRowsEarly = null;
 let playerRowsLater = null;
 
-let setTableHTML = function (EarlyRows, LateRows) {
+let setTableHTML = function (TeeBoxRows, EarlyRows, LateRows) {
 return `<table>
 <tr>
   <th colspan="100%" id="title">Golf Scorecard</th>
@@ -404,177 +404,33 @@ return `<table>
   <th>IN</th>
   <th>TOT</th>
 </tr>
-<tr id="BlueRow">
-  <th>Blue</th>
-  <th id="Blue1">356</th>
-  <th id="Blue2">527</th>
-  <th id="Blue3">194</th>
-  <th id="Blue4">379</th>
-  <th id="Blue5">427</th>
-  <th id="Blue6">373</th>
-  <th id="Blue7">615</th>
-  <th id="Blue8">436</th>
-  <th id="Blue9">204</th>
-  <th id="OutBlue"></th>
-  <th id="Blue10">524</th>
-  <th id="Blue11">390</th>
-  <th id="Blue12">397</th>
-  <th id="Blue13">184</th>
-  <th id="Blue14">551</th>
-  <th id="Blue15">355</th>
-  <th id="Blue16">461</th>
-  <th id="Blue17">184</th>
-  <th id="Blue18">405</th>
-  <th id="InBlue"></th>
-  <th id="TotBlue"></th>
-</tr>
-<tr id="GreenRow">
-  <th>Green</th>
-  <th id="Green1">332</th>
-  <th id="Green2">518</th>
-  <th id="Green3">163</th>
-  <th id="Green4">344</th>
-  <th id="Green5">405</th>
-  <th id="Green6">357</th>
-  <th id="Green7">548</th>
-  <th id="Green8">402</th>
-  <th id="Green9">174</th>
-  <th id="OutGreen"></th>
-  <th id="Green10">505</th>
-  <th id="Green11">376</th>
-  <th id="Green12">385</th>
-  <th id="Green13">143</th>
-  <th id="Green14">513</th>
-  <th id="Green15">354</th>
-  <th id="Green16">419</th>
-  <th id="Green17">146</th>
-  <th id="Green18">381</th>
-  <th id="InGreen"></th>
-  <th id="TotGreen"></th>
-</tr>
-<tr id="GrayRow">
-  <th>Gray</th>
-  <th id="Gray1">314</th>
-  <th id="Gray2">506</th>
-  <th id="Gray3">136</th>
-  <th id="Gray4">296</th>
-  <th id="Gray5">329</th>
-  <th id="Gray6">341</th>
-  <th id="Gray7">498</th>
-  <th id="Gray8">369</th>
-  <th id="Gray9">137</th>
-  <th id="OutGray"></th>
-  <th id="Gray10">435</th>
-  <th id="Gray11">342</th>
-  <th id="Gray12">337</th>
-  <th id="Gray13">128</th>
-  <th id="Gray14">458</th>
-  <th id="Gray15">337</th>
-  <th id="Gray16">343</th>
-  <th id="Gray17">119</th>
-  <th id="Gray18">366</th>
-  <th id="InGray"></th>
-  <th id="TotGray"></th>
-</tr>
-<tr id="HandiRow">
-  <th>Handicap</th>
-  <th id="Handi1">13</th>
-  <th id="Handi2">3</th>
-  <th id="Handi3">15</th>
-  <th id="Handi4">11</th>
-  <th id="Handi5">7</th>
-  <th id="Handi6">9</th>
-  <th id="Handi7">5</th>
-  <th id="Handi8">1</th>
-  <th id="Handi9">17</th>
-  <th id="OutHandi">N/A</th>
-  <th id="Handi10">6</th>
-  <th id="Handi11">12</th>
-  <th id="Handi12">10</th>
-  <th id="Handi13">18</th>
-  <th id="Handi14">4</th>
-  <th id="Handi15">14</th>
-  <th id="Handi16">2</th>
-  <th id="Handi17">16</th>
-  <th id="Handi18">8</th>
-  <th id="InHandi">N/A</th>
-  <th id="TotHandi">N/A</th>
-</tr>
+${TeeBoxRows}
 ${EarlyRows}
 <tr id="ParRow">
   <th>PAR</th>
-  <th id="Par1">4</th>
-  <th id="Par2">5</th>
-  <th id="Par3">3</th>
-  <th id="Par4">4</th>
-  <th id="Par5">4</th>
-  <th id="Par6">4</th>
-  <th id="Par7">5</th>
-  <th id="Par8">4</th>
-  <th id="Par9">3</th>
+  <th id="Par1"></th>
+  <th id="Par2"></th>
+  <th id="Par3"></th>
+  <th id="Par4"></th>
+  <th id="Par5"></th>
+  <th id="Par6"></th>
+  <th id="Par7"></th>
+  <th id="Par8"></th>
+  <th id="Par9"></th>
   <th id="OutPar"></th>
-  <th id="Par10">5</th>
-  <th id="Par11">4</th>
-  <th id="Par12">4</th>
-  <th id="Par13">3</th>
-  <th id="Par14">5</th>
-  <th id="Par15">4</th>
-  <th id="Par16">4</th>
-  <th id="Par17">3</th>
-  <th id="Par18">4</th>
+  <th id="Par10"></th>
+  <th id="Par11"></th>
+  <th id="Par12"></th>
+  <th id="Par13"></th>
+  <th id="Par14"></th>
+  <th id="Par15"></th>
+  <th id="Par16"></th>
+  <th id="Par17"></th>
+  <th id="Par18"></th>
   <th id="InPar"></th>
   <th id="TotPar"></th>
 </tr>
 ${LateRows}
-<tr id="LGreenRow">
-  <th>Light Green</th>
-  <th id="LGreen1">311</th>
-  <th id="LGreen2">418</th>
-  <th id="LGreen3">118</th>
-  <th id="LGreen4">282</th>
-  <th id="LGreen5">326</th>
-  <th id="LGreen6">289</th>
-  <th id="LGreen7">488</th>
-  <th id="LGreen8">295</th>
-  <th id="LGreen9">128</th>
-  <th id="OutLGreen"></th>
-  <th id="LGreen10">425</th>
-  <th id="LGreen11">331</th>
-  <th id="LGreen12">325</th>
-  <th id="LGreen13">117</th>
-  <th id="LGreen14">450</th>
-  <th id="LGreen15">285</th>
-  <th id="LGreen16">339</th>
-  <th id="LGreen17">110</th>
-  <th id="LGreen18">315</th>
-  <th id="InLGreen"></th>
-  <th id="TotLGreen"></th>
-</tr>
-<tr id="LHandiRow">
-  <th>Ladies' Handicap</th>
-  <th id="LHandi1">13</th>
-  <th id="LHandi2">3</th>
-  <th id="LHandi3">15</th>
-  <th id="LHandi4">11</th>
-  <th id="LHandi5">9</th>
-  <th id="LHandi6">5</th>
-  <th id="LHandi7">1</th>
-  <th id="LHandi8">7</th>
-  <th id="LHandi9">17</th>
-  <th id="OutLHandi">N/A</th>
-  <th id="LHandi10">4</th>
-  <th id="LHandi11">12</th>
-  <th id="LHandi12">6</th>
-  <th id="LHandi13">18</th>
-  <th id="LHandi14">2</th>
-  <th id="LHandi15">14</th>
-  <th id="LHandi16">8</th>
-  <th id="LHandi17">16</th>
-  <th id="LHandi18">10</th>
-  <th id="InLHandi">N/A</th>
-  <th id="TotLHandi">N/A</th>
-</tr>
-
 </table>`
 }
 
@@ -589,6 +445,7 @@ function makeTable(GolfingObject){
   golfAPI.onload = function () {
     if (golfAPI.status === 200) {
       let golfObj = JSON.parse(golfAPI.responseText).data;
+      let teeBoxRows = "";
       let playerRowsEarly = "";
       let playerRowsLater = "";
       console.log(golfObj);
@@ -623,28 +480,181 @@ function makeTable(GolfingObject){
           default:
             break;
         }
-        if(i <= 4){
+        if(i <= 3){
           playerRowsEarly += makePlayerRow(numbnumb, numbword);
-        } else if(i >= 5){
+        } else if(i >=4 ){
           playerRowsLater += makePlayerRow(numbnumb, numbword);
         }
       }
-      golfTableObj.innerHTML = setTableHTML(playerRowsEarly, playerRowsLater);
-      getTableData();
-      setOutInTotal();
+      for (let j = 0; j < golfObj.holes[0].teeBoxes.length; j++){
+        if(j == 4) return;
+        let AddRow = "";
+        let teeBoxShortCut = golfObj.holes[0].teeBoxes[j].teeColorType.toLowerCase();
+        if(teeBoxShortCut == "black"){
+          let AddRow = 
+          `<tr id="BlackRow">
+          <th>Black</th>
+          <th id="Black1"></th>
+          <th id="Black2"></th>
+          <th id="Black3"></th>
+          <th id="Black4"></th>
+          <th id="Black5"></th>
+          <th id="Black6"></th>
+          <th id="Black7"></th>
+          <th id="Black8"></th>
+          <th id="Black9"></th>
+          <th id="OutBlack"></th>
+          <th id="Black10"></th>
+          <th id="Black11"></th>
+          <th id="Black12"></th>
+          <th id="Black13"></th>
+          <th id="Black14"></th>
+          <th id="Black15"></th>
+          <th id="Black16"></th>
+          <th id="Black17"></th>
+          <th id="Black18"></th>
+          <th id="InBlack"></th>
+          <th id="TotBlack"></th>
+        </tr>`
+        } else if(teeBoxShortCut == "blue"){
+          AddRow = `<tr id="BlueRow">
+          <th>Blue</th>
+          <th id="Blue1"></th>
+          <th id="Blue2"></th>
+          <th id="Blue3"></th>
+          <th id="Blue4"></th>
+          <th id="Blue5"></th>
+          <th id="Blue6"></th>
+          <th id="Blue7"></th>
+          <th id="Blue8"></th>
+          <th id="Blue9"></th>
+          <th id="OutBlue"></th>
+          <th id="Blue10"></th>
+          <th id="Blue11"></th>
+          <th id="Blue12"></th>
+          <th id="Blue13"></th>
+          <th id="Blue14"></th>
+          <th id="Blue15"></th>
+          <th id="Blue16"></th>
+          <th id="Blue17"></th>
+          <th id="Blue18"></th>
+          <th id="InBlue"></th>
+          <th id="TotBlue"></th>
+        </tr>`
+        } else if(teeBoxShortCut == "white"){
+          AddRow = `<tr id="WhiteRow">
+          <th>White</th>
+          <th id="White1"></th>
+          <th id="White2"></th>
+          <th id="White3"></th>
+          <th id="White4"></th>
+          <th id="White5"></th>
+          <th id="White6"></th>
+          <th id="White7"></th>
+          <th id="White8"></th>
+          <th id="White9"></th>
+          <th id="OutWhite"></th>
+          <th id="White10"></th>
+          <th id="White11"></th>
+          <th id="White12"></th>
+          <th id="White13"></th>
+          <th id="White14"></th>
+          <th id="White15"></th>
+          <th id="White16"></th>
+          <th id="White17"></th>
+          <th id="White18"></th>
+          <th id="InWhite"></th>
+          <th id="TotWhite"></th>
+        </tr>`
+        } else if(teeBoxShortCut == "red"){
+          AddRow = `<tr id="RedRow">
+          <th>Red</th>
+          <th id="Red1"></th>
+          <th id="Red2"></th>
+          <th id="Red3"></th>
+          <th id="Red4"></th>
+          <th id="Red5"></th>
+          <th id="Red6"></th>
+          <th id="Red7"></th>
+          <th id="Red8"></th>
+          <th id="Red9"></th>
+          <th id="OutRed"></th>
+          <th id="Red10"></th>
+          <th id="Red11"></th>
+          <th id="Red12"></th>
+          <th id="Red13"></th>
+          <th id="Red14"></th>
+          <th id="Red15"></th>
+          <th id="Red16"></th>
+          <th id="Red17"></th>
+          <th id="Red18"></th>
+          <th id="InRed"></th>
+          <th id="TotRed"></th>
+        </tr>`
+        } else if(teeBoxShortCut == "yellow"){
+          AddRow = `<tr id="YellowRow">
+          <th>Yellow</th>
+          <th id="Yellow1"></th>
+          <th id="Yellow2"></th>
+          <th id="Yellow3"></th>
+          <th id="Yellow4"></th>
+          <th id="Yellow5"></th>
+          <th id="Yellow6"></th>
+          <th id="Yellow7"></th>
+          <th id="Yellow8"></th>
+          <th id="Yellow9"></th>
+          <th id="OutYellow"></th>
+          <th id="Yellow10"></th>
+          <th id="Yellow11"></th>
+          <th id="Yellow12"></th>
+          <th id="Yellow13"></th>
+          <th id="Yellow14"></th>
+          <th id="Yellow15"></th>
+          <th id="Yellow16"></th>
+          <th id="Yellow17"></th>
+          <th id="Yellow18"></th>
+          <th id="InYellow"></th>
+          <th id="TotYellow"></th>
+        </tr>`
+        }
+        teeBoxRows += AddRow;
+        console.log(j + " "+ AddRow);
+      }
+      console.log(teeBoxRows);
+      golfTableObj.innerHTML = setTableHTML(teeBoxRows, playerRowsEarly, playerRowsLater);
+      //Fox Hollow (1:Black 2:Blue 3:White 4:Red 5:"Auto Change Location")
+      //Thxgiving (1:Black 2:Blue 3:White 4:Red)
+      //Spanish (1:Blue 2:White 3:Yellow)
 
+
+
+      getTableData();
+      // setColorData(golfObj, "Blue");
+      // setColorData(golfObj, "Green");
+      // setColorData(golfObj, "Gray");
+      // setOutInTotal();
     }
   } 
 }
 
-let setColorData = function (golfObj, ObjEdit, holeNumb, ) {
+let setColorData = function (golfObj, color) {
  if (color === "Blue") {
-  ObjEdit.innerText = golfObj.holes[holeNumb-1].teeBoxes[0].meters;
+  for(let i = 0; i < 18; i++){
+    `Blue${i+1}`.innerText = golfObj.holes[i].teeBoxes[0].meters;
+    console.log(`Blue${i+1}`.innerText)
+  }
+ } else if (color === "Green") {
+  for(let i = 0; i < 18; i++){
+    `Green${i+1}`.innerText = golfObj.holes[i].teeBoxes[1].meters;
+  }
  } else if (color === "Gray") {
-  ObjEdit.innerText = golfObj.holes[holeNumb-1].teeBoxes[1].meters;
- } 
+  for(let i = 0; i < 18; i++){
+    `Gray${i+1}`.innerText = golfObj.holes[i].teeBoxes[2].meters;
+  }
+ }
 }
-
+// BLUE   ObjEdit.innerText = golfObj.holes[holeNumb-1].teeBoxes[0].meters;
+// GRAY   ObjEdit.innerText = golfObj.holes[holeNumb-1].teeBoxes[1].meters;
 
 
 

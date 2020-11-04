@@ -7,20 +7,29 @@ table {
     border-collapse: collapse;
   }
   #HoleRow,
-  #GreenRow,
   #ParRow {
     background-color: green;
     color: white;
   }
-  #LGreenRow {
-    background-color: greenyellow;
+  #YellowRow {
+    background-color: yellow;
+    color: black;
   }
   #BlueRow {
     background-color: blue;
     color: white;
   }
-  #GrayRow {
-    background-color: grey;
+  #WhiteRow {
+    background-color: whitesmoke;
+    color: black;
+  }
+  #RedRow {
+    background-color: red;
+    color: black;
+  }
+  #BlackRow {
+    background-color: black;
+    color: white;
   }
   #title {
     font-size: larger;

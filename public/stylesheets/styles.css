@@ -10,20 +10,29 @@ table td {
   border-collapse: collapse;
 }
 table #HoleRow,
-table #GreenRow,
 table #ParRow {
   background-color: green;
   color: white;
 }
-table #LGreenRow {
-  background-color: greenyellow;
+table #YellowRow {
+  background-color: yellow;
+  color: black;
 }
 table #BlueRow {
   background-color: blue;
   color: white;
 }
-table #GrayRow {
-  background-color: grey;
+table #WhiteRow {
+  background-color: whitesmoke;
+  color: black;
+}
+table #RedRow {
+  background-color: red;
+  color: black;
+}
+table #BlackRow {
+  background-color: black;
+  color: white;
 }
 table #title {
   font-size: larger;
