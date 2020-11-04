@@ -603,30 +603,403 @@ function makeTable(GolfingObject){
         }
       }
       golfTableObj.innerHTML = setTableHTML(teeBoxRows, playerRowsEarly, playerRowsLater);       //Fox Hollow (1:Black 2:Blue 3:White 4:Red 5:"Auto Change Location") Thxgiving (1:Black 2:Blue 3:White 4:Red) Spanish (1:Blue 2:White 3:Yellow)
-      getTableData();
       setColorData(golfObj);
-      // setColorData(golfObj, "Blue");
-      // setColorData(golfObj, "Green");
-      // setColorData(golfObj, "Gray");
-      // setOutInTotal();
+      setOutInTotal();
     }
   } 
 }
 
 let setColorData = function (golfObj) {
+  getTableData();
+
   for (let i = 0; i < 18; i++) {
     for(let j =0; j < golfObj.holes[i].teeBoxes.length; j++){
-      console.log("Hole: "+(i+1) + " Row: "+(j+1) + " Data: "+golfObj.holes[i].teeBoxes[j].meters);
-      //set each tee box
+      if(j < 4) {
+      let value = golfObj.holes[i].teeBoxes[j].meters;
+      console.log("Hole: "+(i+1) + "| Row: "+(j+1) + "| Data: "+value);
+      if(golfObj.holes[i].teeBoxes[j].teeColorType.toLowerCase() == "black"){
+        setBlack((i+1), value);
+      } else if(golfObj.holes[i].teeBoxes[j].teeColorType.toLowerCase() == "blue"){
+        setBlue((i+1), value);
+      } else if(golfObj.holes[i].teeBoxes[j].teeColorType.toLowerCase() == "red"){
+        setRed((i+1), value);
+      } else if(golfObj.holes[i].teeBoxes[j].teeColorType.toLowerCase() == "yellow"){
+        setYellow((i+1), value);
+      } else if(golfObj.holes[i].teeBoxes[j].teeColorType.toLowerCase() == "white"){
+        setWhite((i+1), value);
+      }
     }
-    //set par
+  }
+    let parValue = golfObj.holes[i].teeBoxes.par;
+    setPar((i+1), parValue);
   }
 
 }
 
+let setBlack = function(number, value){
+switch (number) {
+  case 1:
+    Black1.innerText = value;
+  case 2:
+    Black2.innerText = value;
+    break;
+  case 3:
+    Black3.innerText = value;
+    break;
+  case 4:
+    Black4.innerText = value;
+    break;
+  case 5:
+    Black5.innerText = value;
+    break;
+  case 6:
+    Black6.innerText = value;
+    break;
+  case 7:
+    Black7.innerText = value;
+    break;
+  case 8:
+    Black8.innerText = value;
+    break;
+  case 9:
+    Black9.innerText = value;
+    break;
+  case 10:
+    Black10.innerText = value;
+    break;
+  case 11:
+    Black11.innerText = value;
+    break;
+  case 12:
+    Black12.innerText = value;
+    break;
+  case 13:
+    Black13.innerText = value;
+    break;
+  case 14:
+    Black14.innerText = value;
+    break;
+  case 15:
+    Black15.innerText = value;
+    break;
+  case 16:
+    Black16.innerText = value;
+    break;
+  case 17:
+    Black17.innerText = value;
+    break;
+  case 18:
+    Black18.innerText = value;
+    break;
+  default:
+    break;
+}
+}
+let setBlue = function(number, value){
+  switch (number) {
+    case 1:
+      Blue1.innerText = value;
+      break;
+    case 2:
+      Blue2.innerText = value;
+      break;
+    case 3:
+      Blue3.innerText = value;
+      break;
+    case 4:
+      Blue4.innerText = value;
+      break;
+    case 5:
+      Blue5.innerText = value;
+      break;
+    case 6:
+      Blue6.innerText = value;
+      break;
+    case 7:
+      Blue7.innerText = value;
+      break;
+    case 8:
+      Blue8.innerText = value;
+      break;
+    case 9:
+      Blue9.innerText = value;
+      break;
+    case 10:
+      Blue10.innerText = value;
+      break;
+    case 11:
+      Blue11.innerText = value;
+      break;
+    case 12:
+      Blue12.innerText = value;
+      break;
+    case 13:
+      Blue13.innerText = value;
+      break;
+    case 14:
+      Blue14.innerText = value;
+      break;
+    case 15:
+      Blue15.innerText = value;
+      break;
+    case 16:
+      Blue16.innerText = value;
+      break;
+    case 17:
+      Blue17.innerText = value;
+      break;
+    case 18:
+      Blue18.innerText = value;
+      break;
+    default:
+      break;
+  }
+}
+let setRed = function(number, value){
+    switch (number) {
+      case 1:
+        Red1.innerText = value;
+        break;
+      case 2:
+        Red2.innerText = value;
+        break;
+      case 3:
+        Red3.innerText = value;
+        break;
+      case 4:
+        Red4.innerText = value;
+        break;
+      case 5:
+        Red5.innerText = value;
+        break;
+      case 6:
+        Red6.innerText = value;
+        break;
+      case 7:
+        Red7.innerText = value;
+        break;
+      case 8:
+        Red8.innerText = value;
+        break;
+      case 9:
+        Red9.innerText = value;
+        break;
+      case 10:
+        Red10.innerText = value;
+        break;
+      case 11:
+        Red11.innerText = value;
+        break;
+      case 12:
+        Red12.innerText = value;
+        break;
+      case 13:
+        Red13.innerText = value;
+        break;
+      case 14:
+        Red14.innerText = value;
+        break;
+      case 15:
+        Red15.innerText = value;
+        break;
+      case 16:
+        Red16.innerText = value;
+        break;
+      case 17:
+        Red17.innerText = value;
+        break;
+      case 18:
+        Red18.innerText = value;
+        break;
+      default:
+        break;
+    }
+}
+let setYellow = function(number, value){
+      switch (number) {
+        case 1:
+          Yellow1.innerText = value;
+          break;
+        case 2:
+          Yellow2.innerText = value;
+          break;
+        case 3:
+          Yellow3.innerText = value;
+          break;
+        case 4:
+          Yellow4.innerText = value;
+          break;
+        case 5:
+          Yellow5.innerText = value;
+          break;
+        case 6:
+          Yellow6.innerText = value;
+          break;
+        case 7:
+          Yellow7.innerText = value;
+          break;
+        case 8:
+          Yellow8.innerText = value;
+          break;
+        case 9:
+          Yellow9.innerText = value;
+          break;
+        case 10:
+          Yellow10.innerText = value;
+          break;
+        case 11:
+          Yellow11.innerText = value;
+          break;
+        case 12:
+          Yellow12.innerText = value;
+          break;
+        case 13:
+          Yellow13.innerText = value;
+          break;
+        case 14:
+          Yellow14.innerText = value;
+          break;
+        case 15:
+          Yellow15.innerText = value;
+          break;
+        case 16:
+          Yellow16.innerText = value;
+          break;
+        case 17:
+          Yellow17.innerText = value;
+          break;
+        case 18:
+          Yellow18.innerText = value;
+          break;
+        default:
+          break;
+      }
+}
+let setWhite = function(number, value){
+        switch (number) {
+          case 1:
+            White1.innerText = value;
+            break;
+          case 2:
+            White2.innerText = value;
+            break;
+          case 3:
+            White3.innerText = value;
+            break;
+          case 4:
+            White4.innerText = value;
+            break;
+          case 5:
+            White5.innerText = value;
+            break;
+          case 6:
+            White6.innerText = value;
+            break;
+          case 7:
+            White7.innerText = value;
+            break;
+          case 8:
+            White8.innerText = value;
+            break;
+          case 9:
+            White9.innerText = value;
+            break;
+          case 10:
+            White10.innerText = value;
+            break;
+          case 11:
+            White11.innerText = value;
+            break;
+          case 12:
+            White12.innerText = value;
+            break;
+          case 13:
+            White13.innerText = value;
+            break;
+          case 14:
+            White14.innerText = value;
+            break;
+          case 15:
+            White15.innerText = value;
+            break;
+          case 16:
+            White16.innerText = value;
+            break;
+          case 17:
+            White17.innerText = value;
+            break;
+          case 18:
+            White18.innerText = value;
+            break;
+          default:
+            break;
+        }
+}
 
-let setOutInTotal = function(playerCount) {
-  if(Blue1){
+let setPar = function(number, value){
+  switch (number) {
+    case 1:
+      Par1.innerText = value;
+      break;
+    case 2:
+      Par2.innerText = value;
+      break;
+    case 3:
+      Par3.innerText = value;
+      break;
+    case 4:
+      Par4.innerText = value;
+      break;
+    case 5:
+      Par5.innerText = value;
+      break;
+    case 6:
+      Par6.innerText = value;
+      break;
+    case 7:
+      Par7.innerText = value;
+      break;
+    case 8:
+      Par8.innerText = value;
+      break;
+    case 9:
+      Par9.innerText = value;
+      break;
+    case 10:
+      Par10.innerText = value;
+      break;
+    case 11:
+      Par11.innerText = value;
+      break;
+    case 12:
+      Par12.innerText = value;
+      break;
+    case 13:
+      Par13.innerText = value;
+      break;
+    case 14:
+      Par14.innerText = value;
+      break;
+    case 15:
+      Par15.innerText = value;
+      break;
+    case 16:
+      Par16.innerText = value;
+      break;
+    case 17:
+      Par17.innerText = value;
+      break;
+    case 18:
+      Par18.innerText = value;
+      break;
+    default:
+      break;
+  }
+}
+
+
+let setOutInTotal = function(playerCount, golfObj) {
+  if(golfObj.includes('blue')){
   let outBlueValue = 0;
   outBlueValue = (Blue1.innerText * 1) + (Blue2.innerText * 1) + (Blue3.innerText * 1) + (Blue4.innerText * 1) + (Blue5.innerText * 1) + (Blue6.innerText * 1) + (Blue7.innerText * 1) + (Blue8.innerText * 1) + (Blue9.innerText * 1);
   OutBlue.innerText = outBlueValue;
@@ -635,7 +1008,7 @@ let setOutInTotal = function(playerCount) {
   InBlue.innerText = inBlueValue;
   TotBlue.innerText = inBlueValue + outBlueValue;
 }
-if(Yellow1) {
+if(golfObj.includes('yellow')){
   let outYellowValue = 0;
   outYellowValue = (Yellow1.innerText * 1) + (Yellow2.innerText * 1) + (Yellow3.innerText * 1) + (Yellow4.innerText * 1) + (Yellow5.innerText * 1) + (Yellow6.innerText * 1) + (Yellow7.innerText * 1) + (Yellow8.innerText * 1) + (Yellow9.innerText * 1);
   OutYellow.innerText = outYellowValue;
@@ -644,7 +1017,7 @@ if(Yellow1) {
   InYellow.innerText = inYellowValue;
   TotYellow.innerText = inYellowValue + outYellowValue;
 }
-  if(White1){
+if(golfObj.includes('white')){
   let outWhiteValue = 0;
   outWhiteValue = (White1.innerText * 1) + (White2.innerText * 1) + (White3.innerText * 1) + (White4.innerText * 1) + (White5.innerText * 1) + (White6.innerText * 1) + (White7.innerText * 1) + (White8.innerText * 1) + (White9.innerText * 1);
   OutWhite.innerText = outWhiteValue;
@@ -653,7 +1026,7 @@ if(Yellow1) {
   InWhite.innerText = inWhiteValue;
   TotWhite.innerText = inWhiteValue + outWhiteValue;
   }
-  if(Black1) {
+  if(golfObj.includes('black')){
     let outBlackValue = 0;
     outBlackValue = (Black1.innerText * 1) + (Black2.innerText * 1) + (Black3.innerText * 1) + (Black4.innerText * 1) + (Black5.innerText * 1) + (Black6.innerText * 1) + (Black7.innerText * 1) + (Black8.innerText * 1) + (Black9.innerText * 1);
     OutBlack.innerText = outBlackValue;
@@ -662,7 +1035,7 @@ if(Yellow1) {
     InBlack.innerText = inBlackValue;
     TotBlack.innerText = inBlackValue + outBlackValue;
   }
-  if(Red1) {
+  if(golfObj.includes('red')){
     let outRedValue = 0;
     outRedValue = (Red1.innerText * 1) + (Red2.innerText * 1) + (Red3.innerText * 1) + (Red4.innerText * 1) + (Red5.innerText * 1) + (Red6.innerText * 1) + (Red7.innerText * 1) + (Red8.innerText * 1) + (Red9.innerText * 1);
     OutRed.innerText = outRedValue;

@@ -89,7 +89,7 @@ function getCourseAndPlayers() {
 
  let GolfReturnObj = {
   courseAPI : newCourseAPI,
-  playerCount : players
+  playerCount : players,
  }
  return GolfReturnObj;
 }
