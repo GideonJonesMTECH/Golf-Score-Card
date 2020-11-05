@@ -18,7 +18,7 @@
     <main>
       <div id="GolfTable">
         <form id="TotalForm">
-          <div id="courseSelect"></div>
+          <div id="courseSelect" onchange="enableButton()"></div>
           <label for="Players">How many Players?</label>
           <select id="playerCount" name="players">
             <option value="1">1</option>
@@ -31,7 +31,12 @@
             <option value="8">8</option>
           </select>
         </form>
-        <button onclick="makeTable(getCourseAndPlayers())">Submit</button>
+        <button
+          onclick="makeTable(getCourseAndPlayers())"
+          id="SubmitFormButton"
+        >
+          Submit
+        </button>
       </div>
     </main>
   </body>

@@ -353,14 +353,13 @@ let makePlayerRow = function (numbnumb, numbword) {
 </tr>`
 }
 
-
 let playerRowsEarly = null;
 let playerRowsLater = null;
 
-let setTableHTML = function (TeeBoxRows, EarlyRows, LateRows) {
+let setTableHTML = function (TeeBoxRows, EarlyRows, LateRows, courseInfo, courseWeb) {
 return `<table>
 <tr>
-  <th colspan="100%" id="title">Golf Scorecard</th>
+  <th colspan="100%" id="title">Golf Scorecard -- ${courseInfo} <a href='${courseWeb}' target='_blank'>${courseWeb}</th>
 </tr>
 <tr id="HoleRow">
   <th>Hole</th>
@@ -414,201 +413,11 @@ ${EarlyRows}
   <th id="TotPar"></th>
 </tr>
 ${LateRows}
-</table>`
+</table>
+
+<div><h2 id="playerResponses"></h1></div>`
 
 
-}
-
-function makeTable(GolfingObject){
-  newApiURL = GolfingObject.courseAPI;
-  let playerCount = GolfingObject.playerCount;
-  let golfAPI = new XMLHttpRequest();
-  golfAPI.open('GET', newApiURL, true);
-  golfAPI.send();
-  golfAPI.onload = function () {
-    if (golfAPI.status === 200) {
-      let golfObj = JSON.parse(golfAPI.responseText).data;
-      let teeBoxRows = "";
-      let playerRowsEarly = "";
-      let playerRowsLater = "";
-      console.log(golfObj);
-      for (let i = 0; i < playerCount; i++) {
-        let numbnumb = i+1;
-        let numbword = "";
-        switch (numbnumb) {
-          case 1:
-            numbword = "One";
-            break;
-          case 2:
-            numbword = "Two";
-            break;
-          case 3:
-            numbword = "Three";
-            break;
-          case 4:
-            numbword = "Four";
-            break;
-          case 5:
-            numbword = "Five";
-            break;
-          case 6:
-            numbword = "Six";
-            break;
-          case 7:
-            numbword = "Seven";
-            break;
-          case 8:
-            numbword = "Eight";
-            break;
-          default:
-            break;
-        }
-        if(i <= 3){
-          playerRowsEarly += makePlayerRow(numbnumb, numbword);
-        } else if(i >=4 ){
-          playerRowsLater += makePlayerRow(numbnumb, numbword);
-        }
-      }
-      for (let j = 0; j < golfObj.holes[0].teeBoxes.length; j++){
-        if(j < 4){
-          let AddRow = "";
-          let teeBoxShortCut = golfObj.holes[0].teeBoxes[j].teeColorType.toLowerCase();
-          if(teeBoxShortCut == "black"){
-            AddRow = `<tr id="BlackRow">
-            <th>Black</th>
-            <th id="Black1"></th>
-            <th id="Black2"></th>
-            <th id="Black3"></th>
-            <th id="Black4"></th>
-            <th id="Black5"></th>
-            <th id="Black6"></th>
-            <th id="Black7"></th>
-            <th id="Black8"></th>
-            <th id="Black9"></th>
-            <th id="OutBlack"></th>
-            <th id="Black10"></th>
-            <th id="Black11"></th>
-            <th id="Black12"></th>
-            <th id="Black13"></th>
-            <th id="Black14"></th>
-            <th id="Black15"></th>
-            <th id="Black16"></th>
-            <th id="Black17"></th>
-            <th id="Black18"></th>
-            <th id="InBlack"></th>
-            <th id="TotBlack"></th>
-          </tr>`
-          } else if(teeBoxShortCut == "blue"){
-            AddRow = `<tr id="BlueRow">
-            <th>Blue</th>
-            <th id="Blue1"></th>
-            <th id="Blue2"></th>
-            <th id="Blue3"></th>
-            <th id="Blue4"></th>
-            <th id="Blue5"></th>
-            <th id="Blue6"></th>
-            <th id="Blue7"></th>
-            <th id="Blue8"></th>
-            <th id="Blue9"></th>
-            <th id="OutBlue"></th>
-            <th id="Blue10"></th>
-            <th id="Blue11"></th>
-            <th id="Blue12"></th>
-            <th id="Blue13"></th>
-            <th id="Blue14"></th>
-            <th id="Blue15"></th>
-            <th id="Blue16"></th>
-            <th id="Blue17"></th>
-            <th id="Blue18"></th>
-            <th id="InBlue"></th>
-            <th id="TotBlue"></th>
-          </tr>`
-          } else if(teeBoxShortCut == "white"){
-            AddRow = `<tr id="WhiteRow">
-            <th>White</th>
-            <th id="White1"></th>
-            <th id="White2"></th>
-            <th id="White3"></th>
-            <th id="White4"></th>
-            <th id="White5"></th>
-            <th id="White6"></th>
-            <th id="White7"></th>
-            <th id="White8"></th>
-            <th id="White9"></th>
-            <th id="OutWhite"></th>
-            <th id="White10"></th>
-            <th id="White11"></th>
-            <th id="White12"></th>
-            <th id="White13"></th>
-            <th id="White14"></th>
-            <th id="White15"></th>
-            <th id="White16"></th>
-            <th id="White17"></th>
-            <th id="White18"></th>
-            <th id="InWhite"></th>
-            <th id="TotWhite"></th>
-          </tr>`
-          } else if(teeBoxShortCut == "red"){
-            AddRow = `<tr id="RedRow">
-            <th>Red</th>
-            <th id="Red1"></th>
-            <th id="Red2"></th>
-            <th id="Red3"></th>
-            <th id="Red4"></th>
-            <th id="Red5"></th>
-            <th id="Red6"></th>
-            <th id="Red7"></th>
-            <th id="Red8"></th>
-            <th id="Red9"></th>
-            <th id="OutRed"></th>
-            <th id="Red10"></th>
-            <th id="Red11"></th>
-            <th id="Red12"></th>
-            <th id="Red13"></th>
-            <th id="Red14"></th>
-            <th id="Red15"></th>
-            <th id="Red16"></th>
-            <th id="Red17"></th>
-            <th id="Red18"></th>
-            <th id="InRed"></th>
-            <th id="TotRed"></th>
-          </tr>`
-          } else if(teeBoxShortCut == "yellow"){
-            AddRow = `<tr id="YellowRow">
-            <th>Yellow</th>
-            <th id="Yellow1"></th>
-            <th id="Yellow2"></th>
-            <th id="Yellow3"></th>
-            <th id="Yellow4"></th>
-            <th id="Yellow5"></th>
-            <th id="Yellow6"></th>
-            <th id="Yellow7"></th>
-            <th id="Yellow8"></th>
-            <th id="Yellow9"></th>
-            <th id="OutYellow"></th>
-            <th id="Yellow10"></th>
-            <th id="Yellow11"></th>
-            <th id="Yellow12"></th>
-            <th id="Yellow13"></th>
-            <th id="Yellow14"></th>
-            <th id="Yellow15"></th>
-            <th id="Yellow16"></th>
-            <th id="Yellow17"></th>
-            <th id="Yellow18"></th>
-            <th id="InYellow"></th>
-            <th id="TotYellow"></th>
-          </tr>`
-          }
-          teeBoxRows += AddRow;
-        }
-      }
-      window.scrollTo(0,0);
-      golfTableObj.innerHTML = setTableHTML(teeBoxRows, playerRowsEarly, playerRowsLater);       //Fox Hollow (1:Black 2:Blue 3:White 4:Red 5:"Auto Change Location") Thxgiving (1:Black 2:Blue 3:White 4:Red) Spanish (1:Blue 2:White 3:Yellow)
-      setColorData(golfObj);
-      setOutInTotal(golfObj);
-    }
-    
-  } 
 }
 
 let setColorData = function (golfObj) {
@@ -1068,8 +877,11 @@ let updatePlayerScore = function () {
   inOneValue = (One10.value * 1) + (One11.value * 1) + (One12.value * 1) + (One13.value * 1) + (One14.value * 1) + (One15.value * 1) + (One16.value * 1) + (One17.value * 1) + (One18.value * 1);
   InOne.innerText = inOneValue;
   TotOne.innerText = inOneValue + outOneValue;
+  if(One1.innerText !== "" && One2.innerText !== "" && One3.innerText !== "" && One4.innerText !== "" && One5.innerText !== "" && One6.innerText !== "" && One7.innerText !== "" && One8.innerText !== "" && One9.innerText !== "" && One10.innerText !== "" && One11.innerText !== "" && One12.innerText !== "" && One13.innerText !== "" && One14.innerText !== "" && One15.innerText !== "" && One16.innerText !== "" && One17.innerText !== "" && One18.innerText !== ""){
+    playerResponse(getElementById("player1Name").value, TotPar, TotOne);
+  }
 
-  if(Two1 != undefined){
+  if(Two1 !== null){
     let outTwoValue = 0;
     outTwoValue = (Two1.value * 1) + (Two2.value * 1) + (Two3.value * 1) + (Two4.value * 1) + (Two5.value * 1) + (Two6.value * 1) + (Two7.value * 1) + (Two8.value * 1) + (Two9.value * 1);
     OutTwo.innerText = outTwoValue;
@@ -1077,7 +889,10 @@ let updatePlayerScore = function () {
     inTwoValue = (Two10.value * 1) + (Two11.value * 1) + (Two12.value * 1) + (Two13.value * 1) + (Two14.value * 1) + (Two15.value * 1) + (Two16.value * 1) + (Two17.value * 1) + (Two18.value * 1);
     InTwo.innerText = inTwoValue;
     TotTwo.innerText = inTwoValue + outTwoValue;
-  }   if(Three1 != undefined){
+    if(Two1.innerText !== "" && Two2.innerText !== "" && Two3.innerText !== "" && Two4.innerText !== "" && Two5.innerText !== "" && Two6.innerText !== "" && Two7.innerText !== "" && Two8.innerText !== "" && Two9.innerText !== "" && Two10.innerText !== "" && Two11.innerText !== "" && Two12.innerText !== "" && Two13.innerText !== "" && Two14.innerText !== "" && Two15.innerText !== "" && Two16.innerText !== "" && Two17.innerText !== "" && Two18.innerText !== ""){
+      playerResponse(getElementById("player2Name").value, TotPar, TotTwo);
+    }
+  }  if(Three1 !== null){
     let outThreeValue = 0;
     outThreeValue = (Three1.value * 1) + (Three2.value * 1) + (Three3.value * 1) + (Three4.value * 1) + (Three5.value * 1) + (Three6.value * 1) + (Three7.value * 1) + (Three8.value * 1) + (Three9.value * 1);
     OutThree.innerText = outThreeValue;
@@ -1085,7 +900,10 @@ let updatePlayerScore = function () {
     inThreeValue = (Three10.value * 1) + (Three11.value * 1) + (Three12.value * 1) + (Three13.value * 1) + (Three14.value * 1) + (Three15.value * 1) + (Three16.value * 1) + (Three17.value * 1) + (Three18.value * 1);
     InThree.innerText = inThreeValue;
     TotThree.innerText = inThreeValue + outThreeValue;
-  }  if(Four1 != undefined){
+    if(Three1.innerText !== "" && Three2.innerText !== "" && Three3.innerText !== "" && Three4.innerText !== "" && Three5.innerText !== "" && Three6.innerText !== "" && Three7.innerText !== "" && Three8.innerText !== "" && Three9.innerText !== "" && Three10.innerText !== "" && Three11.innerText !== "" && Three12.innerText !== "" && Three13.innerText !== "" && Three14.innerText !== "" && Three15.innerText !== "" && Three16.innerText !== "" && Three17.innerText !== "" && Three18.innerText !== ""){
+      playerResponse(getElementById("player3Name").value,TotPar, TotThree);
+    }
+  }  if(Four1 !== null){
     let outFourValue = 0;
     outFourValue = (Four1.value * 1) + (Four2.value * 1) + (Four3.value * 1) + (Four4.value * 1) + (Four5.value * 1) + (Four6.value * 1) + (Four7.value * 1) + (Four8.value * 1) + (Four9.value * 1);
     OutFour.innerText = outFourValue;
@@ -1093,7 +911,10 @@ let updatePlayerScore = function () {
     inFourValue = (Four10.value * 1) + (Four11.value * 1) + (Four12.value * 1) + (Four13.value * 1) + (Four14.value * 1) + (Four15.value * 1) + (Four16.value * 1) + (Four17.value * 1) + (Four18.value * 1);
     InFour.innerText = inFourValue;
     TotFour.innerText = inFourValue + outFourValue;
-  }  if(Five1 != undefined){
+    if(Four1.innerText !== "" && Four2.innerText !== "" && Four3.innerText !== "" && Four4.innerText !== "" && Four5.innerText !== "" && Four6.innerText !== "" && Four7.innerText !== "" && Four8.innerText !== "" && Four9.innerText !== "" && Four10.innerText !== "" && Four11.innerText !== "" && Four12.innerText !== "" && Four13.innerText !== "" && Four14.innerText !== "" && Four15.innerText !== "" && Four16.innerText !== "" && Four17.innerText !== "" && Four18.innerText !== ""){
+      playerResponse(getElementById("player4Name").value,TotPar, TotFour);
+    }
+  }  if(Five1 !== null){
     let outFiveValue = 0;
     outFiveValue = (Five1.value * 1) + (Five2.value * 1) + (Five3.value * 1) + (Five4.value * 1) + (Five5.value * 1) + (Five6.value * 1) + (Five7.value * 1) + (Five8.value * 1) + (Five9.value * 1);
     OutFive.innerText = outFiveValue;
@@ -1101,7 +922,10 @@ let updatePlayerScore = function () {
     inFiveValue = (Five10.value * 1) + (Five11.value * 1) + (Five12.value * 1) + (Five13.value * 1) + (Five14.value * 1) + (Five15.value * 1) + (Five16.value * 1) + (Five17.value * 1) + (Five18.value * 1);
     InFive.innerText = inFiveValue;
     TotFive.innerText = inFiveValue + outFiveValue;
-  }  if(Six1 != undefined){
+    if(Five1.innerText !== "" && Five2.innerText !== "" && Five3.innerText !== "" && Five4.innerText !== "" && Five5.innerText !== "" && Five6.innerText !== "" && Five7.innerText !== "" && Five8.innerText !== "" && Five9.innerText !== "" && Five10.innerText !== "" && Five11.innerText !== "" && Five12.innerText !== "" && Five13.innerText !== "" && Five14.innerText !== "" && Five15.innerText !== "" && Five16.innerText !== "" && Five17.innerText !== "" && Five18.innerText !== ""){
+      playerResponse(getElementById("player5Name").value,TotPar, TotFive);
+    }
+  }  if(Six1 !== null){
     let outSixValue = 0;
     outSixValue = (Six1.value * 1) + (Six2.value * 1) + (Six3.value * 1) + (Six4.value * 1) + (Six5.value * 1) + (Six6.value * 1) + (Six7.value * 1) + (Six8.value * 1) + (Six9.value * 1);
     OutSix.innerText = outSixValue;
@@ -1109,7 +933,10 @@ let updatePlayerScore = function () {
     inSixValue = (Six10.value * 1) + (Six11.value * 1) + (Six12.value * 1) + (Six13.value * 1) + (Six14.value * 1) + (Six15.value * 1) + (Six16.value * 1) + (Six17.value * 1) + (Six18.value * 1);
     InSix.innerText = inSixValue;
     TotSix.innerText = inSixValue + outSixValue;
-  }  if(Seven1 != undefined){
+    if(Six1.innerText !== "" && Six2.innerText !== "" && Six3.innerText !== "" && Six4.innerText !== "" && Six5.innerText !== "" && Six6.innerText !== "" && Six7.innerText !== "" && Six8.innerText !== "" && Six9.innerText !== "" && Six10.innerText !== "" && Six11.innerText !== "" && Six12.innerText !== "" && Six13.innerText !== "" && Six14.innerText !== "" && Six15.innerText !== "" && Six16.innerText !== "" && Six17.innerText !== "" && Six18.innerText !== ""){
+      playerResponse(getElementById("player6Name").value,TotPar, TotSix);
+    }
+  }  if(Seven1 !== null){
     let outSevenValue = 0;
     outSevenValue = (Seven1.value * 1) + (Seven2.value * 1) + (Seven3.value * 1) + (Seven4.value * 1) + (Seven5.value * 1) + (Seven6.value * 1) + (Seven7.value * 1) + (Seven8.value * 1) + (Seven9.value * 1);
     OutSeven.innerText = outSevenValue;
@@ -1117,7 +944,10 @@ let updatePlayerScore = function () {
     inSevenValue = (Seven10.value * 1) + (Seven11.value * 1) + (Seven12.value * 1) + (Seven13.value * 1) + (Seven14.value * 1) + (Seven15.value * 1) + (Seven16.value * 1) + (Seven17.value * 1) + (Seven18.value * 1);
     InSeven.innerText = inSevenValue;
     TotSeven.innerText = inSevenValue + outSevenValue;
-  }  if(Eight1 != undefined){
+    if(Seven1.innerText !== "" && Seven2.innerText !== "" && Seven3.innerText !== "" && Seven4.innerText !== "" && Seven5.innerText !== "" && Seven6.innerText !== "" && Seven7.innerText !== "" && Seven8.innerText !== "" && Seven9.innerText !== "" && Seven10.innerText !== "" && Seven11.innerText !== "" && Seven12.innerText !== "" && Seven13.innerText !== "" && Seven14.innerText !== "" && Seven15.innerText !== "" && Seven16.innerText !== "" && Seven17.innerText !== "" && Seven18.innerText !== ""){
+      playerResponse(getElementById("player7Name").value,TotPar, TotSeven);
+    }
+  }  if(Eight1 !== null){
     let outEightValue = 0;
     outEightValue = (Eight1.value * 1) + (Eight2.value * 1) + (Eight3.value * 1) + (Eight4.value * 1) + (Eight5.value * 1) + (Eight6.value * 1) + (Eight7.value * 1) + (Eight8.value * 1) + (Eight9.value * 1);
     OutEight.innerText = outEightValue;
@@ -1125,5 +955,222 @@ let updatePlayerScore = function () {
     inEightValue = (Eight10.value * 1) + (Eight11.value * 1) + (Eight12.value * 1) + (Eight13.value * 1) + (Eight14.value * 1) + (Eight15.value * 1) + (Eight16.value * 1) + (Eight17.value * 1) + (Eight18.value * 1);
     InEight.innerText = inEightValue;
     TotEight.innerText = inEightValue + outEightValue;
+    if(Eight1.innerText !== "" && Eight2.innerText !== "" && Eight3.innerText !== "" && Eight4.innerText !== "" && Eight5.innerText !== "" && Eight6.innerText !== "" && Eight7.innerText !== "" && Eight8.innerText !== "" && Eight9.innerText !== "" && Eight10.innerText !== "" && Eight11.innerText !== "" && Eight12.innerText !== "" && Eight13.innerText !== "" && Eight14.innerText !== "" && Eight15.innerText !== "" && Eight16.innerText !== "" && Eight17.innerText !== "" && Eight18.innerText !== ""){
+      playerResponse(getElementById("player8Name").value,TotPar, TotEight);
+    }
   }
+}
+
+function playerResponse(PlayerName, ParTotal, PlayerTotal) {
+  let playerResponseElem = document.getElementById("playerResponses");
+playerResponseElem.innerText = "";
+  let playerScore = PlayerTotal - ParTotal;
+  playerResponseElem.innerText += `Good job ${PlayerName}! You finished! Your score was ${playerScore}, compared to the Par. `
+  if(playerScore > 0) {
+    playerResponseElem.innerText += `Better Luck Next Time! 
+
+    `
+  } else if (playerScore == 0) {
+    playerResponseElem.innerText += `Right on Target!
+
+    `
+  } else {
+    playerResponseElem.innerText += `Wow, that's amazing!
+
+    `
+  }
+}
+
+function makeTable(GolfingObject){
+  newApiURL = GolfingObject.courseAPI;
+  let playerCount = GolfingObject.playerCount;
+  let golfAPI = new XMLHttpRequest();
+  golfAPI.open('GET', newApiURL, true);
+  golfAPI.send();
+  golfAPI.onload = function () {
+    if (golfAPI.status === 200) {
+      window.scrollTo(-10,-10);
+      let golfObj = JSON.parse(golfAPI.responseText).data;
+      let teeBoxRows = "";
+      let playerRowsEarly = "";
+      let playerRowsLater = "";
+      console.log(golfObj);
+      for (let i = 0; i < playerCount; i++) {
+        let numbnumb = i+1;
+        let numbword = "";
+        switch (numbnumb) {
+          case 1:
+            numbword = "One";
+            break;
+          case 2:
+            numbword = "Two";
+            break;
+          case 3:
+            numbword = "Three";
+            break;
+          case 4:
+            numbword = "Four";
+            break;
+          case 5:
+            numbword = "Five";
+            break;
+          case 6:
+            numbword = "Six";
+            break;
+          case 7:
+            numbword = "Seven";
+            break;
+          case 8:
+            numbword = "Eight";
+            break;
+          default:
+            break;
+        }
+        if(i <= 3){
+          playerRowsEarly += makePlayerRow(numbnumb, numbword);
+        } else if(i >=4 ){
+          playerRowsLater += makePlayerRow(numbnumb, numbword);
+        }
+      }
+      for (let j = 0; j < golfObj.holes[0].teeBoxes.length; j++){
+        if(j < 4){
+          let AddRow = "";
+          let teeBoxShortCut = golfObj.holes[0].teeBoxes[j].teeColorType.toLowerCase();
+          if(teeBoxShortCut == "black"){
+            AddRow = `<tr id="BlackRow">
+            <th>Black</th>
+            <th id="Black1"></th>
+            <th id="Black2"></th>
+            <th id="Black3"></th>
+            <th id="Black4"></th>
+            <th id="Black5"></th>
+            <th id="Black6"></th>
+            <th id="Black7"></th>
+            <th id="Black8"></th>
+            <th id="Black9"></th>
+            <th id="OutBlack"></th>
+            <th id="Black10"></th>
+            <th id="Black11"></th>
+            <th id="Black12"></th>
+            <th id="Black13"></th>
+            <th id="Black14"></th>
+            <th id="Black15"></th>
+            <th id="Black16"></th>
+            <th id="Black17"></th>
+            <th id="Black18"></th>
+            <th id="InBlack"></th>
+            <th id="TotBlack"></th>
+          </tr>`
+          } else if(teeBoxShortCut == "blue"){
+            AddRow = `<tr id="BlueRow">
+            <th>Blue</th>
+            <th id="Blue1"></th>
+            <th id="Blue2"></th>
+            <th id="Blue3"></th>
+            <th id="Blue4"></th>
+            <th id="Blue5"></th>
+            <th id="Blue6"></th>
+            <th id="Blue7"></th>
+            <th id="Blue8"></th>
+            <th id="Blue9"></th>
+            <th id="OutBlue"></th>
+            <th id="Blue10"></th>
+            <th id="Blue11"></th>
+            <th id="Blue12"></th>
+            <th id="Blue13"></th>
+            <th id="Blue14"></th>
+            <th id="Blue15"></th>
+            <th id="Blue16"></th>
+            <th id="Blue17"></th>
+            <th id="Blue18"></th>
+            <th id="InBlue"></th>
+            <th id="TotBlue"></th>
+          </tr>`
+          } else if(teeBoxShortCut == "white"){
+            AddRow = `<tr id="WhiteRow">
+            <th>White</th>
+            <th id="White1"></th>
+            <th id="White2"></th>
+            <th id="White3"></th>
+            <th id="White4"></th>
+            <th id="White5"></th>
+            <th id="White6"></th>
+            <th id="White7"></th>
+            <th id="White8"></th>
+            <th id="White9"></th>
+            <th id="OutWhite"></th>
+            <th id="White10"></th>
+            <th id="White11"></th>
+            <th id="White12"></th>
+            <th id="White13"></th>
+            <th id="White14"></th>
+            <th id="White15"></th>
+            <th id="White16"></th>
+            <th id="White17"></th>
+            <th id="White18"></th>
+            <th id="InWhite"></th>
+            <th id="TotWhite"></th>
+          </tr>`
+          } else if(teeBoxShortCut == "red"){
+            AddRow = `<tr id="RedRow">
+            <th>Red</th>
+            <th id="Red1"></th>
+            <th id="Red2"></th>
+            <th id="Red3"></th>
+            <th id="Red4"></th>
+            <th id="Red5"></th>
+            <th id="Red6"></th>
+            <th id="Red7"></th>
+            <th id="Red8"></th>
+            <th id="Red9"></th>
+            <th id="OutRed"></th>
+            <th id="Red10"></th>
+            <th id="Red11"></th>
+            <th id="Red12"></th>
+            <th id="Red13"></th>
+            <th id="Red14"></th>
+            <th id="Red15"></th>
+            <th id="Red16"></th>
+            <th id="Red17"></th>
+            <th id="Red18"></th>
+            <th id="InRed"></th>
+            <th id="TotRed"></th>
+          </tr>`
+          } else if(teeBoxShortCut == "yellow"){
+            AddRow = `<tr id="YellowRow">
+            <th>Yellow</th>
+            <th id="Yellow1"></th>
+            <th id="Yellow2"></th>
+            <th id="Yellow3"></th>
+            <th id="Yellow4"></th>
+            <th id="Yellow5"></th>
+            <th id="Yellow6"></th>
+            <th id="Yellow7"></th>
+            <th id="Yellow8"></th>
+            <th id="Yellow9"></th>
+            <th id="OutYellow"></th>
+            <th id="Yellow10"></th>
+            <th id="Yellow11"></th>
+            <th id="Yellow12"></th>
+            <th id="Yellow13"></th>
+            <th id="Yellow14"></th>
+            <th id="Yellow15"></th>
+            <th id="Yellow16"></th>
+            <th id="Yellow17"></th>
+            <th id="Yellow18"></th>
+            <th id="InYellow"></th>
+            <th id="TotYellow"></th>
+          </tr>`
+          }
+          teeBoxRows += AddRow;
+        }
+      }
+      let courseInfo = golfObj.name + " -- " + golfObj.addr1 + ", " + golfObj.city + " " + golfObj.stateOrProvince + " -- " + golfObj.phone + " -- ";
+      let courseWeb = golfObj.website;
+      golfTableObj.innerHTML = setTableHTML(teeBoxRows, playerRowsEarly, playerRowsLater, courseInfo, courseWeb);       //Fox Hollow (1:Black 2:Blue 3:White 4:Red 5:"Auto Change Location") Thxgiving (1:Black 2:Blue 3:White 4:Red) Spanish (1:Blue 2:White 3:Yellow)
+      setColorData(golfObj);
+      setOutInTotal(golfObj);
+    }
+    
+  } 
 }

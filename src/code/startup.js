@@ -15,9 +15,11 @@ let courseDiv = document.getElementById("courseSelect");
 let course1g = {};
 let course2g = {};
 let course3g = {};
+let SubmitButton = document.getElementById("SubmitFormButton");
 
 
 function setStartup(golfObj) {
+  SubmitButton.disabled = true;
  let GolfCourses = {
   course1: {
    name: golfObj[0].name,
@@ -92,4 +94,8 @@ function getCourseAndPlayers() {
   playerCount : players,
  }
  return GolfReturnObj;
+}
+
+function enableButton() {
+  SubmitButton.disabled = false;
 }

@@ -50,6 +50,10 @@ table {
         // margin: 10%;
         border: none;
         outline: none;
+        text-align: center;
+      }
+      ::placeholder {
+        text-align: center;
       }
     }
   }
