@@ -604,7 +604,7 @@ function makeTable(GolfingObject){
       }
       golfTableObj.innerHTML = setTableHTML(teeBoxRows, playerRowsEarly, playerRowsLater);       //Fox Hollow (1:Black 2:Blue 3:White 4:Red 5:"Auto Change Location") Thxgiving (1:Black 2:Blue 3:White 4:Red) Spanish (1:Blue 2:White 3:Yellow)
       setColorData(golfObj);
-      setOutInTotal();
+      setOutInTotal(playerCount, golfObj);
     }
   } 
 }
@@ -616,7 +616,7 @@ let setColorData = function (golfObj) {
     for(let j =0; j < golfObj.holes[i].teeBoxes.length; j++){
       if(j < 4) {
       let value = golfObj.holes[i].teeBoxes[j].meters;
-      console.log("Hole: "+(i+1) + "| Row: "+(j+1) + "| Data: "+value);
+      // console.log("Hole: "+(i+1) + "| Row: "+(j+1) + "| Data: "+value);
       if(golfObj.holes[i].teeBoxes[j].teeColorType.toLowerCase() == "black"){
         setBlack((i+1), value);
       } else if(golfObj.holes[i].teeBoxes[j].teeColorType.toLowerCase() == "blue"){
@@ -935,7 +935,6 @@ let setWhite = function(number, value){
             break;
         }
 }
-
 let setPar = function(number, value){
   switch (number) {
     case 1:
@@ -999,34 +998,44 @@ let setPar = function(number, value){
 
 
 let setOutInTotal = function(playerCount, golfObj) {
-  if(golfObj.includes('blue')){
-  let outBlueValue = 0;
-  outBlueValue = (Blue1.innerText * 1) + (Blue2.innerText * 1) + (Blue3.innerText * 1) + (Blue4.innerText * 1) + (Blue5.innerText * 1) + (Blue6.innerText * 1) + (Blue7.innerText * 1) + (Blue8.innerText * 1) + (Blue9.innerText * 1);
-  OutBlue.innerText = outBlueValue;
-  let inBlueValue = 0;
-  inBlueValue = (Blue10.innerText * 1) + (Blue11.innerText * 1) + (Blue12.innerText * 1) + (Blue13.innerText * 1) + (Blue14.innerText * 1) + (Blue15.innerText * 1) + (Blue16.innerText * 1) + (Blue17.innerText * 1) + (Blue18.innerText * 1);
-  InBlue.innerText = inBlueValue;
-  TotBlue.innerText = inBlueValue + outBlueValue;
-}
-if(golfObj.includes('yellow')){
-  let outYellowValue = 0;
-  outYellowValue = (Yellow1.innerText * 1) + (Yellow2.innerText * 1) + (Yellow3.innerText * 1) + (Yellow4.innerText * 1) + (Yellow5.innerText * 1) + (Yellow6.innerText * 1) + (Yellow7.innerText * 1) + (Yellow8.innerText * 1) + (Yellow9.innerText * 1);
-  OutYellow.innerText = outYellowValue;
-  let inYellowValue = 0;
-  inYellowValue = (Yellow10.innerText * 1) + (Yellow11.innerText * 1) + (Yellow12.innerText * 1) + (Yellow13.innerText * 1) + (Yellow14.innerText * 1) + (Yellow15.innerText * 1) + (Yellow16.innerText * 1) + (Yellow17.innerText * 1) + (Yellow18.innerText * 1);
-  InYellow.innerText = inYellowValue;
-  TotYellow.innerText = inYellowValue + outYellowValue;
-}
-if(golfObj.includes('white')){
-  let outWhiteValue = 0;
-  outWhiteValue = (White1.innerText * 1) + (White2.innerText * 1) + (White3.innerText * 1) + (White4.innerText * 1) + (White5.innerText * 1) + (White6.innerText * 1) + (White7.innerText * 1) + (White8.innerText * 1) + (White9.innerText * 1);
-  OutWhite.innerText = outWhiteValue;
-  let inWhiteValue = 0;
-  inWhiteValue = (White10.innerText * 1) + (White11.innerText * 1) + (White12.innerText * 1) + (White13.innerText * 1) + (White14.innerText * 1) + (White15.innerText * 1) + (White16.innerText * 1) + (White17.innerText * 1) + (White18.innerText * 1);
-  InWhite.innerText = inWhiteValue;
-  TotWhite.innerText = inWhiteValue + outWhiteValue;
+  let golfShort = golfObj.holes[0].teeBoxes;
+  let boxArray = [];
+  for (let i = 0; i < golfShort.length; i++) {
+    if(golfShort[i].teeColorType == 'black'){boxArray.push("black");}
+    if(golfShort[i].teeColorType == 'blue'){boxArray.push("blue");}
+    if(golfShort[i].teeColorType == 'white'){boxArray.push("white");}
+    if(golfShort[i].teeColorType == 'red'){boxArray.push("red");}
+    if(golfShort[i].teeColorType == 'yellow'){boxArray.push("yellow");}
   }
-  if(golfObj.includes('black')){
+
+  if(boxArray.includes('blue')){
+    let outBlueValue = 0;
+    outBlueValue = (Blue1.innerText * 1) + (Blue2.innerText * 1) + (Blue3.innerText * 1) + (Blue4.innerText * 1) + (Blue5.innerText * 1) + (Blue6.innerText * 1) + (Blue7.innerText * 1) + (Blue8.innerText * 1) + (Blue9.innerText * 1);
+    OutBlue.innerText = outBlueValue;
+    let inBlueValue = 0;
+    inBlueValue = (Blue10.innerText * 1) + (Blue11.innerText * 1) + (Blue12.innerText * 1) + (Blue13.innerText * 1) + (Blue14.innerText * 1) + (Blue15.innerText * 1) + (Blue16.innerText * 1) + (Blue17.innerText * 1) + (Blue18.innerText * 1);
+    InBlue.innerText = inBlueValue;
+    TotBlue.innerText = inBlueValue + outBlueValue;
+  }
+  if(boxArray.includes('yellow')){
+    let outYellowValue = 0;
+    outYellowValue = (Yellow1.innerText * 1) + (Yellow2.innerText * 1) + (Yellow3.innerText * 1) + (Yellow4.innerText * 1) + (Yellow5.innerText * 1) + (Yellow6.innerText * 1) + (Yellow7.innerText * 1) + (Yellow8.innerText * 1) + (Yellow9.innerText * 1);
+    OutYellow.innerText = outYellowValue;
+    let inYellowValue = 0;
+    inYellowValue = (Yellow10.innerText * 1) + (Yellow11.innerText * 1) + (Yellow12.innerText * 1) + (Yellow13.innerText * 1) + (Yellow14.innerText * 1) + (Yellow15.innerText * 1) + (Yellow16.innerText * 1) + (Yellow17.innerText * 1) + (Yellow18.innerText * 1);
+    InYellow.innerText = inYellowValue;
+    TotYellow.innerText = inYellowValue + outYellowValue;
+  }
+  if(boxArray.includes('white')){
+    let outWhiteValue = 0;
+    outWhiteValue = (White1.innerText * 1) + (White2.innerText * 1) + (White3.innerText * 1) + (White4.innerText * 1) + (White5.innerText * 1) + (White6.innerText * 1) + (White7.innerText * 1) + (White8.innerText * 1) + (White9.innerText * 1);
+    OutWhite.innerText = outWhiteValue;
+    let inWhiteValue = 0;
+    inWhiteValue = (White10.innerText * 1) + (White11.innerText * 1) + (White12.innerText * 1) + (White13.innerText * 1) + (White14.innerText * 1) + (White15.innerText * 1) + (White16.innerText * 1) + (White17.innerText * 1) + (White18.innerText * 1);
+    InWhite.innerText = inWhiteValue;
+    TotWhite.innerText = inWhiteValue + outWhiteValue;
+  }
+  if(boxArray.includes('black')){
     let outBlackValue = 0;
     outBlackValue = (Black1.innerText * 1) + (Black2.innerText * 1) + (Black3.innerText * 1) + (Black4.innerText * 1) + (Black5.innerText * 1) + (Black6.innerText * 1) + (Black7.innerText * 1) + (Black8.innerText * 1) + (Black9.innerText * 1);
     OutBlack.innerText = outBlackValue;
@@ -1035,7 +1044,7 @@ if(golfObj.includes('white')){
     InBlack.innerText = inBlackValue;
     TotBlack.innerText = inBlackValue + outBlackValue;
   }
-  if(golfObj.includes('red')){
+  if(boxArray.includes('red')){
     let outRedValue = 0;
     outRedValue = (Red1.innerText * 1) + (Red2.innerText * 1) + (Red3.innerText * 1) + (Red4.innerText * 1) + (Red5.innerText * 1) + (Red6.innerText * 1) + (Red7.innerText * 1) + (Red8.innerText * 1) + (Red9.innerText * 1);
     OutRed.innerText = outRedValue;
@@ -1044,6 +1053,7 @@ if(golfObj.includes('white')){
     InRed.innerText = inRedValue;
     TotRed.innerText = inRedValue + outRedValue;
   }
+
   let outParValue = 0;
   outParValue = (Par1.innerText * 1) + (Par2.innerText * 1) + (Par3.innerText * 1) + (Par4.innerText * 1) + (Par5.innerText * 1) + (Par6.innerText * 1) + (Par7.innerText * 1) + (Par8.innerText * 1) + (Par9.innerText * 1);
   OutPar.innerText = outParValue;

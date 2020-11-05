@@ -39,12 +39,14 @@ table #title {
   font-size: larger;
   font-weight: 700;
 }
-table .PlayerRow td {
+table .PlayerRow td,
+table .PlayerRow th {
   padding: 0;
   margin: 0;
   width: 1em;
 }
-table .PlayerRow td input {
+table .PlayerRow td input,
+table .PlayerRow th input {
   padding-top: 10%;
   padding-bottom: 10%;
   border: none;
