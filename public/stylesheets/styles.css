@@ -59,4 +59,18 @@ table .PlayerRow th ::placeholder {
   text-align: center;
 }
 
+form div input {
+  vertical-align: middle;
+  align-items: center;
+}
+form div label figure {
+  text-align: center;
+}
+form div label figure img {
+  width: 50%;
+}
+form div label figure figcaption {
+  vertical-align: middle;
+}
+
 /*# sourceMappingURL=styles.css.map */

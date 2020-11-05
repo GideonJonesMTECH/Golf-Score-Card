@@ -60,3 +60,22 @@ table {
   border: 1px solid black;
   border-collapse: collapse;
 }
+form {
+  div {
+    input {
+      vertical-align: middle;
+      align-items: center;
+    }
+    label {
+      figure {
+        text-align: center;
+        img {
+          width: 50%;
+        }
+        figcaption {
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+}
