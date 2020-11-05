@@ -1,5 +1,5 @@
 function getTableData() {
-//#region BLUE
+//#region Blue
 const Blue1 = document.getElementById("Blue1");
 const Blue2 = document.getElementById("Blue2");
 const Blue3 = document.getElementById("Blue3");
@@ -68,7 +68,7 @@ const InRed = document.getElementById('InRed');
 const OutRed = document.getElementById('OutRed');
 const TotRed = document.getElementById('TotRed');
 //#endregion
-//#region PAR
+//#region Par
 const Par1 = document.getElementById('Par1');
 const Par2 = document.getElementById('Par2');
 const Par3 = document.getElementById('Par3');
@@ -329,25 +329,25 @@ let newApiURL = "";
 let makePlayerRow = function (numbnumb, numbword) {
   return `<tr class="PlayerRow" id="Player${numbnumb}Row">
 <th><input type="text" id="player${numbnumb}Name" placeholder="Player ${numbnumb}"></th>
-<td><input type="number" id="${numbword}1" /></td>
-<td><input type="number" id="${numbword}2" /></td>
-<td><input type="number" id="${numbword}3" /></td>
-<td><input type="number" id="${numbword}4" /></td>
-<td><input type="number" id="${numbword}5" /></td>
-<td><input type="number" id="${numbword}6" /></td>
-<td><input type="number" id="${numbword}7" /></td>
-<td><input type="number" id="${numbword}8" /></td>
-<td><input type="number" id="${numbword}9" /></td>
+<td><input type="number" id="${numbword}1" onChange="updatePlayerScore()"/></td>
+<td><input type="number" id="${numbword}2" onChange="updatePlayerScore()" /></td>
+<td><input type="number" id="${numbword}3" onChange="updatePlayerScore()" /></td>
+<td><input type="number" id="${numbword}4" onChange="updatePlayerScore()" /></td>
+<td><input type="number" id="${numbword}5" onChange="updatePlayerScore()" /></td>
+<td><input type="number" id="${numbword}6" onChange="updatePlayerScore()" /></td>
+<td><input type="number" id="${numbword}7" onChange="updatePlayerScore()" /></td>
+<td><input type="number" id="${numbword}8" onChange="updatePlayerScore()" /></td>
+<td><input type="number" id="${numbword}9" onChange="updatePlayerScore()" /></td>
 <th id="Out${numbword}"></th>
-<td><input type="number" id="${numbword}10" /></td>
-<td><input type="number" id="${numbword}11" /></td>
-<td><input type="number" id="${numbword}12" /></td>
-<td><input type="number" id="${numbword}13" /></td>
-<td><input type="number" id="${numbword}14" /></td>
-<td><input type="number" id="${numbword}15" /></td>
-<td><input type="number" id="${numbword}16" /></td>
-<td><input type="number" id="${numbword}17" /></td>
-<td><input type="number" id="${numbword}18" /></td>
+<td><input type="number" id="${numbword}10" onChange="updatePlayerScore()" /></td>
+<td><input type="number" id="${numbword}11" onChange="updatePlayerScore()" /></td>
+<td><input type="number" id="${numbword}12" onChange="updatePlayerScore()" /></td>
+<td><input type="number" id="${numbword}13" onChange="updatePlayerScore()" /></td>
+<td><input type="number" id="${numbword}14" onChange="updatePlayerScore()" /></td>
+<td><input type="number" id="${numbword}15" onChange="updatePlayerScore()" /></td>
+<td><input type="number" id="${numbword}16" onChange="updatePlayerScore()" /></td>
+<td><input type="number" id="${numbword}17" onChange="updatePlayerScore()" /></td>
+<td><input type="number" id="${numbword}18" onChange="updatePlayerScore()" /></td>
 <th id="In${numbword}"></th>
 <th id="Tot${numbword}"></th>
 </tr>`
@@ -415,9 +415,9 @@ ${EarlyRows}
 </tr>
 ${LateRows}
 </table>`
+
+
 }
-
-
 
 function makeTable(GolfingObject){
   newApiURL = GolfingObject.courseAPI;
@@ -602,38 +602,33 @@ function makeTable(GolfingObject){
           teeBoxRows += AddRow;
         }
       }
+      window.scrollTo(0,0);
       golfTableObj.innerHTML = setTableHTML(teeBoxRows, playerRowsEarly, playerRowsLater);       //Fox Hollow (1:Black 2:Blue 3:White 4:Red 5:"Auto Change Location") Thxgiving (1:Black 2:Blue 3:White 4:Red) Spanish (1:Blue 2:White 3:Yellow)
       setColorData(golfObj);
-      setOutInTotal(playerCount, golfObj);
+      setOutInTotal(golfObj);
     }
+    
   } 
 }
 
 let setColorData = function (golfObj) {
   getTableData();
-
-  for (let i = 0; i < 18; i++) {
+  for (let i = 0; i < golfObj.holes.length; i++) {
     for(let j =0; j < golfObj.holes[i].teeBoxes.length; j++){
       if(j < 4) {
       let value = golfObj.holes[i].teeBoxes[j].meters;
       // console.log("Hole: "+(i+1) + "| Row: "+(j+1) + "| Data: "+value);
-      if(golfObj.holes[i].teeBoxes[j].teeColorType.toLowerCase() == "black"){
-        setBlack((i+1), value);
-      } else if(golfObj.holes[i].teeBoxes[j].teeColorType.toLowerCase() == "blue"){
-        setBlue((i+1), value);
-      } else if(golfObj.holes[i].teeBoxes[j].teeColorType.toLowerCase() == "red"){
-        setRed((i+1), value);
-      } else if(golfObj.holes[i].teeBoxes[j].teeColorType.toLowerCase() == "yellow"){
-        setYellow((i+1), value);
-      } else if(golfObj.holes[i].teeBoxes[j].teeColorType.toLowerCase() == "white"){
-        setWhite((i+1), value);
+      if(golfObj.holes[i].teeBoxes[j].teeColorType.toLowerCase() == "black"){setBlack((i+1), value);
+      } else if(golfObj.holes[i].teeBoxes[j].teeColorType.toLowerCase() == "blue"){setBlue((i+1), value);
+      } else if(golfObj.holes[i].teeBoxes[j].teeColorType.toLowerCase() == "red"){setRed((i+1), value);
+      } else if(golfObj.holes[i].teeBoxes[j].teeColorType.toLowerCase() == "yellow"){setYellow((i+1), value);
+      } else if(golfObj.holes[i].teeBoxes[j].teeColorType.toLowerCase() == "white"){setWhite((i+1), value);
       }
     }
   }
-    let parValue = golfObj.holes[i].teeBoxes.par;
+    let parValue = golfObj.holes[i].teeBoxes[0].par;
     setPar((i+1), parValue);
   }
-
 }
 
 let setBlack = function(number, value){
@@ -996,8 +991,7 @@ let setPar = function(number, value){
   }
 }
 
-
-let setOutInTotal = function(playerCount, golfObj) {
+let setOutInTotal = function(golfObj) {
   let golfShort = golfObj.holes[0].teeBoxes;
   let boxArray = [];
   for (let i = 0; i < golfShort.length; i++) {
@@ -1062,6 +1056,11 @@ let setOutInTotal = function(playerCount, golfObj) {
   InPar.innerText = inParValue;
   TotPar.innerText = inParValue + outParValue;
 
+  updatePlayerScore();
+}
+
+let updatePlayerScore = function () {
+  getTableData();
   let outOneValue = 0;
   outOneValue = (One1.value * 1) + (One2.value * 1) + (One3.value * 1) + (One4.value * 1) + (One5.value * 1) + (One6.value * 1) + (One7.value * 1) + (One8.value * 1) + (One9.value * 1);
   OutOne.innerText = outOneValue;
@@ -1070,7 +1069,7 @@ let setOutInTotal = function(playerCount, golfObj) {
   InOne.innerText = inOneValue;
   TotOne.innerText = inOneValue + outOneValue;
 
-  if(playerCount >= 2){
+  if(Two1 != undefined){
     let outTwoValue = 0;
     outTwoValue = (Two1.value * 1) + (Two2.value * 1) + (Two3.value * 1) + (Two4.value * 1) + (Two5.value * 1) + (Two6.value * 1) + (Two7.value * 1) + (Two8.value * 1) + (Two9.value * 1);
     OutTwo.innerText = outTwoValue;
@@ -1078,7 +1077,7 @@ let setOutInTotal = function(playerCount, golfObj) {
     inTwoValue = (Two10.value * 1) + (Two11.value * 1) + (Two12.value * 1) + (Two13.value * 1) + (Two14.value * 1) + (Two15.value * 1) + (Two16.value * 1) + (Two17.value * 1) + (Two18.value * 1);
     InTwo.innerText = inTwoValue;
     TotTwo.innerText = inTwoValue + outTwoValue;
-  }   if(playerCount >= 3){
+  }   if(Three1 != undefined){
     let outThreeValue = 0;
     outThreeValue = (Three1.value * 1) + (Three2.value * 1) + (Three3.value * 1) + (Three4.value * 1) + (Three5.value * 1) + (Three6.value * 1) + (Three7.value * 1) + (Three8.value * 1) + (Three9.value * 1);
     OutThree.innerText = outThreeValue;
@@ -1086,7 +1085,7 @@ let setOutInTotal = function(playerCount, golfObj) {
     inThreeValue = (Three10.value * 1) + (Three11.value * 1) + (Three12.value * 1) + (Three13.value * 1) + (Three14.value * 1) + (Three15.value * 1) + (Three16.value * 1) + (Three17.value * 1) + (Three18.value * 1);
     InThree.innerText = inThreeValue;
     TotThree.innerText = inThreeValue + outThreeValue;
-  }  if(playerCount >= 4){
+  }  if(Four1 != undefined){
     let outFourValue = 0;
     outFourValue = (Four1.value * 1) + (Four2.value * 1) + (Four3.value * 1) + (Four4.value * 1) + (Four5.value * 1) + (Four6.value * 1) + (Four7.value * 1) + (Four8.value * 1) + (Four9.value * 1);
     OutFour.innerText = outFourValue;
@@ -1094,7 +1093,7 @@ let setOutInTotal = function(playerCount, golfObj) {
     inFourValue = (Four10.value * 1) + (Four11.value * 1) + (Four12.value * 1) + (Four13.value * 1) + (Four14.value * 1) + (Four15.value * 1) + (Four16.value * 1) + (Four17.value * 1) + (Four18.value * 1);
     InFour.innerText = inFourValue;
     TotFour.innerText = inFourValue + outFourValue;
-  }  if(playerCount >= 5){
+  }  if(Five1 != undefined){
     let outFiveValue = 0;
     outFiveValue = (Five1.value * 1) + (Five2.value * 1) + (Five3.value * 1) + (Five4.value * 1) + (Five5.value * 1) + (Five6.value * 1) + (Five7.value * 1) + (Five8.value * 1) + (Five9.value * 1);
     OutFive.innerText = outFiveValue;
@@ -1102,7 +1101,7 @@ let setOutInTotal = function(playerCount, golfObj) {
     inFiveValue = (Five10.value * 1) + (Five11.value * 1) + (Five12.value * 1) + (Five13.value * 1) + (Five14.value * 1) + (Five15.value * 1) + (Five16.value * 1) + (Five17.value * 1) + (Five18.value * 1);
     InFive.innerText = inFiveValue;
     TotFive.innerText = inFiveValue + outFiveValue;
-  }  if(playerCount >= 6){
+  }  if(Six1 != undefined){
     let outSixValue = 0;
     outSixValue = (Six1.value * 1) + (Six2.value * 1) + (Six3.value * 1) + (Six4.value * 1) + (Six5.value * 1) + (Six6.value * 1) + (Six7.value * 1) + (Six8.value * 1) + (Six9.value * 1);
     OutSix.innerText = outSixValue;
@@ -1110,7 +1109,7 @@ let setOutInTotal = function(playerCount, golfObj) {
     inSixValue = (Six10.value * 1) + (Six11.value * 1) + (Six12.value * 1) + (Six13.value * 1) + (Six14.value * 1) + (Six15.value * 1) + (Six16.value * 1) + (Six17.value * 1) + (Six18.value * 1);
     InSix.innerText = inSixValue;
     TotSix.innerText = inSixValue + outSixValue;
-  }  if(playerCount >= 7){
+  }  if(Seven1 != undefined){
     let outSevenValue = 0;
     outSevenValue = (Seven1.value * 1) + (Seven2.value * 1) + (Seven3.value * 1) + (Seven4.value * 1) + (Seven5.value * 1) + (Seven6.value * 1) + (Seven7.value * 1) + (Seven8.value * 1) + (Seven9.value * 1);
     OutSeven.innerText = outSevenValue;
@@ -1118,7 +1117,7 @@ let setOutInTotal = function(playerCount, golfObj) {
     inSevenValue = (Seven10.value * 1) + (Seven11.value * 1) + (Seven12.value * 1) + (Seven13.value * 1) + (Seven14.value * 1) + (Seven15.value * 1) + (Seven16.value * 1) + (Seven17.value * 1) + (Seven18.value * 1);
     InSeven.innerText = inSevenValue;
     TotSeven.innerText = inSevenValue + outSevenValue;
-  }  if(playerCount >= 8){
+  }  if(Eight1 != undefined){
     let outEightValue = 0;
     outEightValue = (Eight1.value * 1) + (Eight2.value * 1) + (Eight3.value * 1) + (Eight4.value * 1) + (Eight5.value * 1) + (Eight6.value * 1) + (Eight7.value * 1) + (Eight8.value * 1) + (Eight9.value * 1);
     OutEight.innerText = outEightValue;
