@@ -415,7 +415,7 @@ ${EarlyRows}
 ${LateRows}
 </table>
 
-<div><h2 id="playerResponses"></h1></div>`
+<div id="playerResponses"></div>`
 
 
 }
@@ -870,6 +870,7 @@ let setOutInTotal = function(golfObj) {
 
 let updatePlayerScore = function () {
   getTableData();
+
   let outOneValue = 0;
   outOneValue = (One1.value * 1) + (One2.value * 1) + (One3.value * 1) + (One4.value * 1) + (One5.value * 1) + (One6.value * 1) + (One7.value * 1) + (One8.value * 1) + (One9.value * 1);
   OutOne.innerText = outOneValue;
@@ -877,11 +878,10 @@ let updatePlayerScore = function () {
   inOneValue = (One10.value * 1) + (One11.value * 1) + (One12.value * 1) + (One13.value * 1) + (One14.value * 1) + (One15.value * 1) + (One16.value * 1) + (One17.value * 1) + (One18.value * 1);
   InOne.innerText = inOneValue;
   TotOne.innerText = inOneValue + outOneValue;
-  if(One1.innerText !== "" && One2.innerText !== "" && One3.innerText !== "" && One4.innerText !== "" && One5.innerText !== "" && One6.innerText !== "" && One7.innerText !== "" && One8.innerText !== "" && One9.innerText !== "" && One10.innerText !== "" && One11.innerText !== "" && One12.innerText !== "" && One13.innerText !== "" && One14.innerText !== "" && One15.innerText !== "" && One16.innerText !== "" && One17.innerText !== "" && One18.innerText !== ""){
-    playerResponse(getElementById("player1Name").value, TotPar, TotOne);
-  }
-
-  if(Two1 !== null){
+  if(One1.value !== "" && One2.value !== "" && One3.value !== "" && One4.value !== "" && One5.value !== "" && One6.value !== "" && One7.value !== "" && One8.value !== "" && One9.value !== "" && One10.value !== "" && One11.value !== "" && One12.value !== "" && One13.value !== "" && One14.value !== "" && One15.value !== "" && One16.value !== "" && One17.value !== "" && One18.value !== ""){
+    player1Name = document.getElementById("player1Name").value;
+    playerResponse((player1Name == "" || player1Name == null) ? "Player 1" : player1Name, TotPar.innerText, TotOne.innerText);
+  }  if(typeof Two1 != "undefined"){
     let outTwoValue = 0;
     outTwoValue = (Two1.value * 1) + (Two2.value * 1) + (Two3.value * 1) + (Two4.value * 1) + (Two5.value * 1) + (Two6.value * 1) + (Two7.value * 1) + (Two8.value * 1) + (Two9.value * 1);
     OutTwo.innerText = outTwoValue;
@@ -889,10 +889,11 @@ let updatePlayerScore = function () {
     inTwoValue = (Two10.value * 1) + (Two11.value * 1) + (Two12.value * 1) + (Two13.value * 1) + (Two14.value * 1) + (Two15.value * 1) + (Two16.value * 1) + (Two17.value * 1) + (Two18.value * 1);
     InTwo.innerText = inTwoValue;
     TotTwo.innerText = inTwoValue + outTwoValue;
-    if(Two1.innerText !== "" && Two2.innerText !== "" && Two3.innerText !== "" && Two4.innerText !== "" && Two5.innerText !== "" && Two6.innerText !== "" && Two7.innerText !== "" && Two8.innerText !== "" && Two9.innerText !== "" && Two10.innerText !== "" && Two11.innerText !== "" && Two12.innerText !== "" && Two13.innerText !== "" && Two14.innerText !== "" && Two15.innerText !== "" && Two16.innerText !== "" && Two17.innerText !== "" && Two18.innerText !== ""){
-      playerResponse(getElementById("player2Name").value, TotPar, TotTwo);
+    if(Two1.value !== '' && Two2.value !== '' && Two3.value !== '' && Two4.value !== '' && Two5.value !== '' && Two6.value !== '' && Two7.value !== '' && Two8.value !== '' && Two9.value !== '' && Two10.value !== '' && Two11.value !== '' && Two12.value !== '' && Two13.value !== '' && Two14.value !== '' && Two15.value !== '' && Two16.value !== '' && Two17.value !== '' && Two18.value !== ''){
+      player2Name = document.getElementById('player2Name').value;
+      playerResponse((player2Name == '' || player2Name == null) ? 'Player 2' : player2Name, TotPar.innerText, TotTwo.innerText)
     }
-  }  if(Three1 !== null){
+  }  if(typeof Three1 !== "undefined"){
     let outThreeValue = 0;
     outThreeValue = (Three1.value * 1) + (Three2.value * 1) + (Three3.value * 1) + (Three4.value * 1) + (Three5.value * 1) + (Three6.value * 1) + (Three7.value * 1) + (Three8.value * 1) + (Three9.value * 1);
     OutThree.innerText = outThreeValue;
@@ -900,21 +901,23 @@ let updatePlayerScore = function () {
     inThreeValue = (Three10.value * 1) + (Three11.value * 1) + (Three12.value * 1) + (Three13.value * 1) + (Three14.value * 1) + (Three15.value * 1) + (Three16.value * 1) + (Three17.value * 1) + (Three18.value * 1);
     InThree.innerText = inThreeValue;
     TotThree.innerText = inThreeValue + outThreeValue;
-    if(Three1.innerText !== "" && Three2.innerText !== "" && Three3.innerText !== "" && Three4.innerText !== "" && Three5.innerText !== "" && Three6.innerText !== "" && Three7.innerText !== "" && Three8.innerText !== "" && Three9.innerText !== "" && Three10.innerText !== "" && Three11.innerText !== "" && Three12.innerText !== "" && Three13.innerText !== "" && Three14.innerText !== "" && Three15.innerText !== "" && Three16.innerText !== "" && Three17.innerText !== "" && Three18.innerText !== ""){
-      playerResponse(getElementById("player3Name").value,TotPar, TotThree);
+    if(Three1.value !== '' && Three2.value !== '' && Three3.value !== '' && Three4.value !== '' && Three5.value !== '' && Three6.value !== '' && Three7.value !== '' && Three8.value !== '' && Three9.value !== '' && Three10.value !== '' && Three11.value !== '' && Three12.value !== '' && Three13.value !== '' && Three14.value !== '' && Three15.value !== '' && Three16.value !== '' && Three17.value !== '' && Three18.value !== ''){
+      player3Name = document.getElementById('player3Name').value;
+      playerResponse((player3Name == '' || player3Name == null) ? 'Player 3' : player3Name, TotPar.innerText, TotThree.innerText)
     }
-  }  if(Four1 !== null){
+  }  if(typeof Four1 !== "undefined"){
     let outFourValue = 0;
     outFourValue = (Four1.value * 1) + (Four2.value * 1) + (Four3.value * 1) + (Four4.value * 1) + (Four5.value * 1) + (Four6.value * 1) + (Four7.value * 1) + (Four8.value * 1) + (Four9.value * 1);
     OutFour.innerText = outFourValue;
     let inFourValue = 0;
     inFourValue = (Four10.value * 1) + (Four11.value * 1) + (Four12.value * 1) + (Four13.value * 1) + (Four14.value * 1) + (Four15.value * 1) + (Four16.value * 1) + (Four17.value * 1) + (Four18.value * 1);
     InFour.innerText = inFourValue;
-    TotFour.innerText = inFourValue + outFourValue;
-    if(Four1.innerText !== "" && Four2.innerText !== "" && Four3.innerText !== "" && Four4.innerText !== "" && Four5.innerText !== "" && Four6.innerText !== "" && Four7.innerText !== "" && Four8.innerText !== "" && Four9.innerText !== "" && Four10.innerText !== "" && Four11.innerText !== "" && Four12.innerText !== "" && Four13.innerText !== "" && Four14.innerText !== "" && Four15.innerText !== "" && Four16.innerText !== "" && Four17.innerText !== "" && Four18.innerText !== ""){
-      playerResponse(getElementById("player4Name").value,TotPar, TotFour);
+    TotFour.value = inFourValue + outFourValue;
+    if(Four1.value !== '' && Four2.value !== '' && Four3.value !== '' && Four4.value !== '' && Four5.value !== '' && Four6.value !== '' && Four7.value !== '' && Four8.value !== '' && Four9.value !== '' && Four10.value !== '' && Four11.value !== '' && Four12.value !== '' && Four13.value !== '' && Four14.value !== '' && Four15.value !== '' && Four16.value !== '' && Four17.value !== '' && Four18.value !== ''){
+      player4Name = document.getElementById('player4Name').value;
+      playerResponse((player4Name == '' || player4Name == null) ? 'Player 4' : player4Name, TotPar.innerText, TotFour.innerText)
     }
-  }  if(Five1 !== null){
+  }  if(typeof Five1 !== "undefined"){
     let outFiveValue = 0;
     outFiveValue = (Five1.value * 1) + (Five2.value * 1) + (Five3.value * 1) + (Five4.value * 1) + (Five5.value * 1) + (Five6.value * 1) + (Five7.value * 1) + (Five8.value * 1) + (Five9.value * 1);
     OutFive.innerText = outFiveValue;
@@ -922,10 +925,11 @@ let updatePlayerScore = function () {
     inFiveValue = (Five10.value * 1) + (Five11.value * 1) + (Five12.value * 1) + (Five13.value * 1) + (Five14.value * 1) + (Five15.value * 1) + (Five16.value * 1) + (Five17.value * 1) + (Five18.value * 1);
     InFive.innerText = inFiveValue;
     TotFive.innerText = inFiveValue + outFiveValue;
-    if(Five1.innerText !== "" && Five2.innerText !== "" && Five3.innerText !== "" && Five4.innerText !== "" && Five5.innerText !== "" && Five6.innerText !== "" && Five7.innerText !== "" && Five8.innerText !== "" && Five9.innerText !== "" && Five10.innerText !== "" && Five11.innerText !== "" && Five12.innerText !== "" && Five13.innerText !== "" && Five14.innerText !== "" && Five15.innerText !== "" && Five16.innerText !== "" && Five17.innerText !== "" && Five18.innerText !== ""){
-      playerResponse(getElementById("player5Name").value,TotPar, TotFive);
+    if(Five1.value !== '' && Five2.value !== '' && Five3.value !== '' && Five4.value !== '' && Five5.value !== '' && Five6.value !== '' && Five7.value !== '' && Five8.value !== '' && Five9.value !== '' && Five10.value !== '' && Five11.value !== '' && Five12.value !== '' && Five13.value !== '' && Five14.value !== '' && Five15.value !== '' && Five16.value !== '' && Five17.value !== '' && Five18.value !== ''){
+      player5Name = document.getElementById('player5Name').value;
+      playerResponse((player5Name == '' || player5Name == null) ? 'Player 5' : player5Name, TotPar.innerText, TotFive.innerText)
     }
-  }  if(Six1 !== null){
+  }  if(typeof Six1 !== "undefined"){
     let outSixValue = 0;
     outSixValue = (Six1.value * 1) + (Six2.value * 1) + (Six3.value * 1) + (Six4.value * 1) + (Six5.value * 1) + (Six6.value * 1) + (Six7.value * 1) + (Six8.value * 1) + (Six9.value * 1);
     OutSix.innerText = outSixValue;
@@ -933,10 +937,11 @@ let updatePlayerScore = function () {
     inSixValue = (Six10.value * 1) + (Six11.value * 1) + (Six12.value * 1) + (Six13.value * 1) + (Six14.value * 1) + (Six15.value * 1) + (Six16.value * 1) + (Six17.value * 1) + (Six18.value * 1);
     InSix.innerText = inSixValue;
     TotSix.innerText = inSixValue + outSixValue;
-    if(Six1.innerText !== "" && Six2.innerText !== "" && Six3.innerText !== "" && Six4.innerText !== "" && Six5.innerText !== "" && Six6.innerText !== "" && Six7.innerText !== "" && Six8.innerText !== "" && Six9.innerText !== "" && Six10.innerText !== "" && Six11.innerText !== "" && Six12.innerText !== "" && Six13.innerText !== "" && Six14.innerText !== "" && Six15.innerText !== "" && Six16.innerText !== "" && Six17.innerText !== "" && Six18.innerText !== ""){
-      playerResponse(getElementById("player6Name").value,TotPar, TotSix);
+    if(Six1.value !== '' && Six2.value !== '' && Six3.value !== '' && Six4.value !== '' && Six5.value !== '' && Six6.value !== '' && Six7.value !== '' && Six8.value !== '' && Six9.value !== '' && Six10.value !== '' && Six11.value !== '' && Six12.value !== '' && Six13.value !== '' && Six14.value !== '' && Six15.value !== '' && Six16.value !== '' && Six17.value !== '' && Six18.value !== ''){
+      player6Name = document.getElementById('player6Name').value;
+      playerResponse((player6Name == '' || player6Name == null) ? 'Player 6' : player6Name, TotPar.innerText, TotSix.innerText)
     }
-  }  if(Seven1 !== null){
+  }  if(typeof Seven1 !== "undefined"){
     let outSevenValue = 0;
     outSevenValue = (Seven1.value * 1) + (Seven2.value * 1) + (Seven3.value * 1) + (Seven4.value * 1) + (Seven5.value * 1) + (Seven6.value * 1) + (Seven7.value * 1) + (Seven8.value * 1) + (Seven9.value * 1);
     OutSeven.innerText = outSevenValue;
@@ -944,10 +949,11 @@ let updatePlayerScore = function () {
     inSevenValue = (Seven10.value * 1) + (Seven11.value * 1) + (Seven12.value * 1) + (Seven13.value * 1) + (Seven14.value * 1) + (Seven15.value * 1) + (Seven16.value * 1) + (Seven17.value * 1) + (Seven18.value * 1);
     InSeven.innerText = inSevenValue;
     TotSeven.innerText = inSevenValue + outSevenValue;
-    if(Seven1.innerText !== "" && Seven2.innerText !== "" && Seven3.innerText !== "" && Seven4.innerText !== "" && Seven5.innerText !== "" && Seven6.innerText !== "" && Seven7.innerText !== "" && Seven8.innerText !== "" && Seven9.innerText !== "" && Seven10.innerText !== "" && Seven11.innerText !== "" && Seven12.innerText !== "" && Seven13.innerText !== "" && Seven14.innerText !== "" && Seven15.innerText !== "" && Seven16.innerText !== "" && Seven17.innerText !== "" && Seven18.innerText !== ""){
-      playerResponse(getElementById("player7Name").value,TotPar, TotSeven);
+    if(Seven1.value !== '' && Seven2.value !== '' && Seven3.value !== '' && Seven4.value !== '' && Seven5.value !== '' && Seven6.value !== '' && Seven7.value !== '' && Seven8.value !== '' && Seven9.value !== '' && Seven10.value !== '' && Seven11.value !== '' && Seven12.value !== '' && Seven13.value !== '' && Seven14.value !== '' && Seven15.value !== '' && Seven16.value !== '' && Seven17.value !== '' && Seven18.value !== ''){
+      player7Name = document.getElementById('player7Name').value;
+      playerResponse((player7Name == '' || player7Name == null) ? 'Player 7' : player7Name, TotPar.innerText, TotSeven.innerText)
     }
-  }  if(Eight1 !== null){
+  }  if(typeof Eight1 !== "undefined"){
     let outEightValue = 0;
     outEightValue = (Eight1.value * 1) + (Eight2.value * 1) + (Eight3.value * 1) + (Eight4.value * 1) + (Eight5.value * 1) + (Eight6.value * 1) + (Eight7.value * 1) + (Eight8.value * 1) + (Eight9.value * 1);
     OutEight.innerText = outEightValue;
@@ -955,31 +961,13 @@ let updatePlayerScore = function () {
     inEightValue = (Eight10.value * 1) + (Eight11.value * 1) + (Eight12.value * 1) + (Eight13.value * 1) + (Eight14.value * 1) + (Eight15.value * 1) + (Eight16.value * 1) + (Eight17.value * 1) + (Eight18.value * 1);
     InEight.innerText = inEightValue;
     TotEight.innerText = inEightValue + outEightValue;
-    if(Eight1.innerText !== "" && Eight2.innerText !== "" && Eight3.innerText !== "" && Eight4.innerText !== "" && Eight5.innerText !== "" && Eight6.innerText !== "" && Eight7.innerText !== "" && Eight8.innerText !== "" && Eight9.innerText !== "" && Eight10.innerText !== "" && Eight11.innerText !== "" && Eight12.innerText !== "" && Eight13.innerText !== "" && Eight14.innerText !== "" && Eight15.innerText !== "" && Eight16.innerText !== "" && Eight17.innerText !== "" && Eight18.innerText !== ""){
-      playerResponse(getElementById("player8Name").value,TotPar, TotEight);
+    if(Eight1.value !== '' && Eight2.value !== '' && Eight3.value !== '' && Eight4.value !== '' && Eight5.value !== '' && Eight6.value !== '' && Eight7.value !== '' && Eight8.value !== '' && Eight9.value !== '' && Eight10.value !== '' && Eight11.value !== '' && Eight12.value !== '' && Eight13.value !== '' && Eight14.value !== '' && Eight15.value !== '' && Eight16.value !== '' && Eight17.value !== '' && Eight18.value !== ''){
+      player8Name = document.getElementById('player8Name').value;
+      playerResponse((player8Name == '' || player8Name == null) ? 'Player 8' : player8Name, TotPar.innerText, TotEight.innerText)
     }
   }
 }
 
-function playerResponse(PlayerName, ParTotal, PlayerTotal) {
-  let playerResponseElem = document.getElementById("playerResponses");
-playerResponseElem.innerText = "";
-  let playerScore = PlayerTotal - ParTotal;
-  playerResponseElem.innerText += `Good job ${PlayerName}! You finished! Your score was ${playerScore}, compared to the Par. `
-  if(playerScore > 0) {
-    playerResponseElem.innerText += `Better Luck Next Time! 
-
-    `
-  } else if (playerScore == 0) {
-    playerResponseElem.innerText += `Right on Target!
-
-    `
-  } else {
-    playerResponseElem.innerText += `Wow, that's amazing!
-
-    `
-  }
-}
 
 function makeTable(GolfingObject){
   newApiURL = GolfingObject.courseAPI;
@@ -1173,4 +1161,20 @@ function makeTable(GolfingObject){
     }
     
   } 
+}
+
+function playerResponse(PlayerName, ParTotal, PlayerTotal) {
+  let playerResponseElem = document.getElementById("playerResponses");
+  playerResponseElem.innerText = "";
+  let playerScore = PlayerTotal - ParTotal;
+  console.log(playerScore + " = " + PlayerTotal + " - " + ParTotal);
+  playerResponseElem.innerText += 'Good job '+ PlayerName + '! You finished! Your score was ' + playerScore + ', compared to the Par. '
+  if(playerScore > 0) {
+    playerResponseElem.innerText += ' Better Luck Next Time!'
+  } else if (playerScore == 0) {
+    playerResponseElem.innerText += ' Right on Target!'
+  } else {
+    playerResponseElem.innerText += " Wow, that's amazing!"
+  }
+  playerResponseElem.innerHTML += `<br>`;
 }
