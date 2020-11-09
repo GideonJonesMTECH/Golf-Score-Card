@@ -1166,15 +1166,23 @@ function makeTable(GolfingObject){
 function playerResponse(PlayerName, ParTotal, PlayerTotal) {
   let playerResponseElem = document.getElementById("playerResponses");
   playerResponseElem.innerText += "";
+
+  let responseLine = "";
   let playerScore = PlayerTotal - ParTotal;
   console.log(playerScore + " = " + PlayerTotal + " - " + ParTotal);
-  playerResponseElem.innerText += 'Good job '+ PlayerName + '! You finished! Your score was ' + playerScore + ', compared to the Par, ' + ParTotal + '.';
+  responseLine += 'Good job '+ PlayerName + '! You finished! Your total was ' + PlayerTotal + ', compared to the Par, ' + ParTotal + '. Your score (your total minus the par) is ' + playerScore + "!" ;
   if(playerScore > 0) {
-    playerResponseElem.innerText += ' Better Luck Next Time!'
+    responseLine += ' Better Luck Next Time!'
   } else if (playerScore == 0) {
-    playerResponseElem.innerText += ' Right on Target!'
+    responseLine += ' Right on Target!'
   } else {
-    playerResponseElem.innerText += " Wow, that's amazing!"
+    responseLine += " Wow, that's amazing!"
   }
-  playerResponseElem.innerHTML += `<br>`;
+  if(playerResponseElem.innerText.includes(responseLine)){
+    return;
+  }
+  else {
+    playerResponseElem.innerText += responseLine;
+    playerResponseElem.innerHTML += `<br>`;
+  }
 }
